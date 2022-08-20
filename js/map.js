@@ -79,13 +79,36 @@ markerDesastreNatural.bindPopup("<b>DESASTRE NATURAL</b><br>Se ha reportado un d
 //mostrando un pop up cuando se clickea
 
 var popup = L.popup();
+var visibilidadBoton = document.getElementById("botonReportar");
 
 function onMapClick(e) {
+    visibilidadBoton.className -= "d-none";
+    // visibilidadBoton.className += "d-block";
     popup
         .setLatLng(e.latlng)
         .setContent("&#x1f4cd; Por favor dinos cuál es el tipo de reporte que deseas hacer sobre esta ubicación haciendo click en el botón bajo el mapa &#x2b07;&#xfe0f; &#x2b07;&#xfe0f; &#x2b07;&#xfe0f;")
-        // e.latlng.toString()
         .openOn(map);
+        // var coordenadasReporte = e.latlng.toString();
+        // alert(coordenadasReporte);    
 }
 
 map.on('click', onMapClick);
+
+
+function enviarReporteDesastreNaturalABackEnd () {
+    alert("Enviando datos sobre desastre natural a back end");
+    // visibilidadBoton.className -= "d-block";
+    visibilidadBoton.className += "d-none";
+}
+
+function enviarReporteRoboABackEnd () {
+    alert("Enviando datos sobre robo a back end");
+    visibilidadBoton.className -= "d-block";
+    visibilidadBoton.className += "d-none";
+}
+
+function enviarReporteAccidenteVialABackEnd () {
+    alert("Enviando datos sobre accidente vial a back end");
+    visibilidadBoton.className -= "d-block";
+    visibilidadBoton.className += "d-none";
+}
