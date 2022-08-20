@@ -11,7 +11,7 @@ header {
 }
 
 #map {
-    height: 400px;
+    height: 350px;
     width: 100%;
 }
 
@@ -19,4 +19,12 @@ footer {
     padding: 20px 0;
     background: #1e1e1e;
     border-radius: 10px;
+}
+
+#exampleModalLabel {
+    color: #000;
+}
+
+.modal-body {
+    color: #000;
 }

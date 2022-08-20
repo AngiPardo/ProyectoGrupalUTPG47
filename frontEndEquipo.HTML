@@ -16,7 +16,7 @@
     <div class="container">
         <header class="row">
             <div class="col">
-                <h1>App de seguridad ciudadana</h1>
+                <h1> &#x1f5e3;&#xfe0f; App de seguridad ciudadana</h1>
                 <p>Mapa colaborativo de reportes de seguridad en tiempo real en Kennedy - Bogotá</p>
             </div>
         </header>
@@ -50,9 +50,6 @@
                               <li><a class="dropdown-item" href="#">Something else here</a></li>
                             </ul>
                           </li>
-                          <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                          </li>
                         </ul>
                         <form class="d-flex">
                           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -81,6 +78,39 @@
         </div>
     </div>
 
+    <div class="container">
+        <div class="row">
+            <div class="col d-flex justify-content-evenly">
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <button type="button" class="btn btn-primary col-sm-12 fs-5 fw-bolder" data-bs-toggle="modal" data-bs-target="#exampleModal">&#x1f4cd; Presiona aquí para hacer un reporte en la ubicación seleccionada &#x1f4cd;</button>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">&#128079; ¡Gracias por tu contribución!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">Toca el nombre del suceso que deseas reportar</div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Desastre Natural</button>
+                        <button type="button" class="btn btn-primary">Robo</button>
+                        <button type="button" class="btn btn-primary">Accidente Vial</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <hr>
     <div class="container">
@@ -132,6 +162,9 @@
             <div class="col">
                 <h4></h4>
                 <p> Front End desarrollado con BootStrap, Back End desarrollado con SpringBoot, Base de Datos hecha con <br> MySQL  © 2022</p>
+                <a href="https://www.flaticon.es/iconos-gratis/terremoto" title="terremoto iconos">Terremoto iconos creados por Konkapp - Flaticon</a>
+                <a href="https://www.flaticon.es/iconos-gratis/accidente" title="accidente iconos">Accidente iconos creados por itim2101 - Flaticon</a>
+                <a href="https://www.flaticon.es/iconos-gratis/robar" title="robar iconos">Robar iconos creados por pongsakornRed - Flaticon</a>
             </div>
         </footer>
     </div>
@@ -141,5 +174,6 @@
     integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
     crossorigin=""></script>
     <script src="js/map.js"></script>
+    <script src="js/popup.js"></script>
 </body>
 </html>
