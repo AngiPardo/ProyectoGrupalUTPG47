@@ -6,7 +6,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 var roboIcon = L.icon({
-    iconUrl: '../img/robo.png',
+    iconUrl: 'https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/robo.png',
     // shadowUrl: 'leaf-shadow.png',
 
     iconSize:     [50, 50], // size of the icon
@@ -19,7 +19,7 @@ var roboIcon = L.icon({
 var markerRobo = L.marker([4.60971, -74.08175], {icon: roboIcon}).addTo(map);
 
 var accidenteVialIcon = L.icon({
-    iconUrl: '../img/choque-de-autos.png',
+    iconUrl: 'https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/choque-de-autos.png',
     // shadowUrl: 'leaf-shadow.png',
 
     iconSize:     [50, 50],
@@ -32,7 +32,7 @@ var accidenteVialIcon = L.icon({
 var markerAccidenteVial = L.marker([4.61971, -74.07175], {icon: accidenteVialIcon}).addTo(map);
 
 var DesastreNaturalIcon = L.icon({
-    iconUrl: '../img/terremoto.png',
+    iconUrl: 'https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/terremoto.png',
     // shadowUrl: 'leaf-shadow.png',
 
     iconSize:     [50, 50],
