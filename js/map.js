@@ -78,20 +78,35 @@ markerDesastreNatural.bindPopup("<b>DESASTRE NATURAL</b><br>Se ha reportado un d
 
 //mostrando un pop up cuando se clickea
 
+var coordenadasDelReporte = document.getElementById('coordenadasReportadas');
+
 var popup = L.popup();
 var visibilidadBoton = document.getElementById("botonReportar");
 
 function onMapClick(e) {
+    
+    var coordenadas = e.latlng;
+    var latitud = coordenadas.lat;
+    var longitud = coordenadas.lng;
+    coordenadasDelReporte.value = latitud+ "," + longitud;
+
+    var circle = L.circle([latitud, longitud], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 500
+    }).addTo(map);
+    
     visibilidadBoton.className -= "d-none";
     // visibilidadBoton.className += "d-block";
     popup
         .setLatLng(e.latlng)
         .setContent("&#x1f4cd; Por favor dinos cuál es el tipo de reporte que deseas hacer sobre esta ubicación haciendo click en el botón bajo el mapa &#x2b07;&#xfe0f; &#x2b07;&#xfe0f; &#x2b07;&#xfe0f;")
         .openOn(map);
-        // var coordenadasReporte = e.latlng.toString();
-        // alert(coordenadasReporte);    
+// alert(coordenadasDelReporte.value);
 }
 map.on('click', onMapClick);
+
 
 var eleccionTipoReporte = document.getElementById('selectorTipoReporte');
 var detallesDelReporte = document.getElementById('entradaDeLosDetalles');
@@ -99,23 +114,27 @@ var fechaReporte = document.getElementById('fechaReporte');
 var botonEnviarElReporte = document.getElementById('botonEnviarReporte');
 
 botonEnviarElReporte.addEventListener('click',enviarReporteABackEnd);
-
-
+alert(setLatLng(latlng));
 
 function enviarReporteABackEnd () {
-    if(eleccionTipoReporte.value == "Elige un tipo de reporte" || detallesDelReporte.value == "" || fechaReporte == "") {
+    var coordenadasFinalesReportadas = coordenadasDelReporte.value.split(",");
+    var latitudReportada = coordenadasFinalesReportadas[0];
+    var longitudReportada = coordenadasFinalesReportadas[1];
+    alert(latitudReportada);
+    alert(longitudReportada);
+    
+    if(eleccionTipoReporte.value == "Elige un tipo de reporte" || detallesDelReporte.value == "" || fechaReporte.value == "") {
         alert('Información incompleta');                
     } else if(eleccionTipoReporte.value == 1) {
         var tipoReporte = "Desastre natural"; 
-        alert(`Enviando los siguientes datos a back end: Tipo de Reporte: ${tipoReporte} Detalles del Reporte: ${detallesDelReporte.value} Fecha del suceso: ${fechaReporte.value}`);
+        alert(`Enviando los siguientes datos a back end: Tipo de Reporte: ${tipoReporte} Detalles del Reporte: ${detallesDelReporte.value} Fecha del suceso: ${fechaReporte.value} Latitud: ${latitudReportada} Longitud: ${longitudReportada}`);
     } else if(eleccionTipoReporte.value == 2) {
         var tipoReporte = "Accidente vial";
-        alert(`Enviando los siguientes datos a back end: Tipo de Reporte: ${tipoReporte} Detalles del Reporte: ${detallesDelReporte.value} Fecha del suceso: ${fechaReporte.value}`);
+        alert(`Enviando los siguientes datos a back end: Tipo de Reporte: ${tipoReporte} Detalles del Reporte: ${detallesDelReporte.value} Fecha del suceso: ${fechaReporte.value} Latitud: ${latitudReportada} Longitud: ${longitudReportada}`);
     } else if(eleccionTipoReporte.value == 3) {
         var tipoReporte = "Robo";
-        alert(`Enviando los siguientes datos a back end: Tipo de Reporte: ${tipoReporte} Detalles del Reporte: ${detallesDelReporte.value} Fecha del suceso: ${fechaReporte.value}`);
+        alert(`Enviando los siguientes datos a back end: Tipo de Reporte: ${tipoReporte} Detalles del Reporte: ${detallesDelReporte.value} Fecha del suceso: ${fechaReporte.value} Latitud: ${latitudReportada} Longitud: ${longitudReportada}`);
     }
-    
     visibilidadBoton.className -= "d-block";
     visibilidadBoton.className += "d-none";
 }
