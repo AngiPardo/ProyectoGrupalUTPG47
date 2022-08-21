@@ -91,24 +91,31 @@ function onMapClick(e) {
         // var coordenadasReporte = e.latlng.toString();
         // alert(coordenadasReporte);    
 }
-
 map.on('click', onMapClick);
 
+var eleccionTipoReporte = document.getElementById('selectorTipoReporte');
+var detallesDelReporte = document.getElementById('entradaDeLosDetalles');
+var fechaReporte = document.getElementById('fechaReporte');
+var botonEnviarElReporte = document.getElementById('botonEnviarReporte');
 
-function enviarReporteDesastreNaturalABackEnd () {
-    alert("Enviando datos sobre desastre natural a back end");
-    // visibilidadBoton.className -= "d-block";
-    visibilidadBoton.className += "d-none";
-}
+botonEnviarElReporte.addEventListener('click',enviarReporteABackEnd);
 
-function enviarReporteRoboABackEnd () {
-    alert("Enviando datos sobre robo a back end");
-    visibilidadBoton.className -= "d-block";
-    visibilidadBoton.className += "d-none";
-}
 
-function enviarReporteAccidenteVialABackEnd () {
-    alert("Enviando datos sobre accidente vial a back end");
+
+function enviarReporteABackEnd () {
+    if(eleccionTipoReporte.value == "Elige un tipo de reporte" || detallesDelReporte.value == "" || fechaReporte == "") {
+        alert('Información incompleta');                
+    } else if(eleccionTipoReporte.value == 1) {
+        var tipoReporte = "Desastre natural"; 
+        alert(`Enviando los siguientes datos a back end: Tipo de Reporte: ${tipoReporte} Detalles del Reporte: ${detallesDelReporte.value} Fecha del suceso: ${fechaReporte.value}`);
+    } else if(eleccionTipoReporte.value == 2) {
+        var tipoReporte = "Accidente vial";
+        alert(`Enviando los siguientes datos a back end: Tipo de Reporte: ${tipoReporte} Detalles del Reporte: ${detallesDelReporte.value} Fecha del suceso: ${fechaReporte.value}`);
+    } else if(eleccionTipoReporte.value == 3) {
+        var tipoReporte = "Robo";
+        alert(`Enviando los siguientes datos a back end: Tipo de Reporte: ${tipoReporte} Detalles del Reporte: ${detallesDelReporte.value} Fecha del suceso: ${fechaReporte.value}`);
+    }
+    
     visibilidadBoton.className -= "d-block";
     visibilidadBoton.className += "d-none";
 }

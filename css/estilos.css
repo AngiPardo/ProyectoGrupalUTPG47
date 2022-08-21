@@ -25,6 +25,11 @@ header {
     padding: 3px;
 }
 
+#formularioReporte {
+    margin: 10px 10px;
+    padding: 10px 10px;
+}
+
 footer {
     padding: 20px 0;
     background: #1e1e1e;
