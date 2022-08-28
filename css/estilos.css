@@ -30,6 +30,26 @@ header {
     padding: 10px 10px;
 }
 
+/* # formRegistroUsuarioRepor {
+    width: 100%;
+} */
+
+#headerModalRegistro, #headerModalInicioSesion, #headerModalReporte {
+    background-color: #4c4181;
+    color: #FFF;
+}
+.button {
+    background-color: #4c4181;
+    color: #FFF;
+    font-weight: bolder;
+    font-size: 1.2rem;
+}
+
+/* input, p {
+    color: black;
+    font-size: 1.1rem;
+} */
+
 footer {
     padding: 20px 0;
     background: #1e1e1e;
@@ -44,3 +64,11 @@ footer {
 .modal-body {
     color: #000;
 }
+
+/* .invisible {
+    display: none;
+}
+
+.visible {
+    display: ;
+} */

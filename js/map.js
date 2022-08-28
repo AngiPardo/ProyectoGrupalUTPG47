@@ -9,7 +9,6 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 var coordenadasDelReporte = document.getElementById('coordenadasReportadas');
 
 var popup = L.popup();
-var visibilidadBoton = document.getElementById("botonReportar");
 
 function onMapClick(e) {
     
@@ -24,14 +23,6 @@ function onMapClick(e) {
         fillOpacity: 0.5,
         radius: 500
     }).addTo(map);
-    
-    visibilidadBoton.className -= "d-none";
-    // visibilidadBoton.className += "d-block";
-    popup
-        .setLatLng(e.latlng)
-        .setContent("&#x1f4cd; Por favor dinos cuál es el tipo de reporte que deseas hacer sobre esta ubicación haciendo click en el botón bajo el mapa &#x2b07;&#xfe0f; &#x2b07;&#xfe0f; &#x2b07;&#xfe0f;")
-        .openOn(map);
-// alert(coordenadasDelReporte.value);
 }
 map.on('click', onMapClick);
 
@@ -42,7 +33,6 @@ var fechaReporte = document.getElementById('fechaReporte');
 var botonEnviarElReporte = document.getElementById('botonEnviarReporte');
 
 botonEnviarElReporte.addEventListener('click',enviarReporteABackEnd);
-alert(setLatLng(latlng));
 
 function enviarReporteABackEnd () {
 
@@ -50,20 +40,38 @@ function enviarReporteABackEnd () {
     var latitudReportada = coordenadasFinalesReportadas[0];
     var longitudReportada = coordenadasFinalesReportadas[1];
 
-    if(eleccionTipoReporte.value == "Elige un tipo de reporte" || detallesDelReporte.value == "" || fechaReporte.value == "") {
+    if(eleccionTipoReporte.value == "Elige un tipo de reporte") {
         alert('Información incompleta');           
     } else if(eleccionTipoReporte.value == 1) {
         var tipoReporte = "DESASTRE NATURAL";
         var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/terremoto.png"; 
-        alert(`Enviando los siguientes datos a back end: Tipo de Reporte: ${tipoReporte} Detalles del Reporte: ${detallesDelReporte.value} Fecha del suceso: ${fechaReporte.value} Latitud: ${latitudReportada} Longitud: ${longitudReportada}`);
+        alert(`[{
+            "TipoDeReporte": "${tipoReporte}",
+            "DescripcionDelReporte": "${detallesDelReporte.value}",
+            "FechaDelReporte": "${fechaReporte.value}",
+            "Latitud": "${latitudReportada}",
+            "Longitud": "${longitudReportada}"
+        }]`);
     } else if(eleccionTipoReporte.value == 2) {
         var tipoReporte = "ACCIDENTE VIAL";
         var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/choque-de-autos.png";
-        alert(`Enviando los siguientes datos a back end: Tipo de Reporte: ${tipoReporte} Detalles del Reporte: ${detallesDelReporte.value} Fecha del suceso: ${fechaReporte.value} Latitud: ${latitudReportada} Longitud: ${longitudReportada}`);
+        alert(`[{
+            "TipoDeReporte": "${tipoReporte}",
+            "DescripcionDelReporte": "${detallesDelReporte.value}",
+            "FechaDelReporte": "${fechaReporte.value}",
+            "Latitud": "${latitudReportada}",
+            "Longitud": "${longitudReportada}"
+        }]`);
     } else if(eleccionTipoReporte.value == 3) {
         var tipoReporte = "ROBO";
         var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/robo.png";
-        alert(`Enviando los siguientes datos a back end: Tipo de Reporte: ${tipoReporte} Detalles del Reporte: ${detallesDelReporte.value} Fecha del suceso: ${fechaReporte.value} Latitud: ${latitudReportada} Longitud: ${longitudReportada}`);
+        alert(`[{
+            "TipoDeReporte": "${tipoReporte}",
+            "DescripcionDelReporte": "${detallesDelReporte.value}",
+            "FechaDelReporte": "${fechaReporte.value}",
+            "Latitud": "${latitudReportada}",
+            "Longitud": "${longitudReportada}"
+        }]`);
     }
 
     var Icon = L.icon({
@@ -78,9 +86,6 @@ function enviarReporteABackEnd () {
     });
     
     var marker = L.marker([latitudReportada, longitudReportada], {icon: Icon}).addTo(map);
-
     marker.bindPopup(`<b>${tipoReporte}</b><br>${detallesDelReporte.value}</b><br>Fecha :${fechaReporte.value}`).openPopup();
-
-    visibilidadBoton.className -= "d-block";
-    visibilidadBoton.className += "d-none";
 }
+
