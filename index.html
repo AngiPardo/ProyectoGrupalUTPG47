@@ -46,10 +46,10 @@
                                 <a class="nav-link" href="#footerCompleto">Atribuciones externas</a>
                             </li>
                         </ul>
-                        <form class="d-flex">
+                        <!-- <form class="d-flex">
                           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                           <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
+                        </form> -->
                       </div>
                     </div>
                 </nav>
@@ -83,16 +83,16 @@
                                 <fieldset>
                                     <legend class="form__label">Por favor diligencia los datos solicitados</legend>
                                     <div class="input-container">
-                                        <input name="name" id="name" class="input" type="text" placeholder="Nombre de Usuario" required data-tipo="nombre" style="width: 100%; margin: 5px; padding: 10px;">
+                                        <input name="name" id="nameRegistro" class="input" type="text" placeholder="Nombre de Usuario" required data-tipo="nombre" style="width: 100%; margin: 5px; padding: 10px;">
                                     </div>
                                     <div class="input-container">
-                                        <input name="email" id="email" class="input" type="email" placeholder="Email" required data-tipo="email" style="width: 100%; margin: 5px; padding: 10px;">
+                                        <input name="email" id="emailRegistro" class="input" type="email" placeholder="Email" required data-tipo="email" style="width: 100%; margin: 5px; padding: 10px;">
                                     </div>
                                     <div class="input-container">
-                                        <input name="password" id="password" class="input" type="password" placeholder="Contraseña" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$" title="Al menos 6 caracteres, máximo 12, debe contener una letra minúscula, una letra mayúscula, un número y no puede contener caracteres especiales." data-tipo="password" style="width: 100%; margin: 5px; padding: 10px;">
+                                        <input name="password" id="passwordRegistro" class="input" type="password" placeholder="Contraseña" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$" title="Al menos 6 caracteres, máximo 12, debe contener una letra minúscula, una letra mayúscula, un número y no puede contener caracteres especiales." data-tipo="password" style="width: 100%; margin: 5px; padding: 10px;">
                                     </div>
                                 </fieldset>
-                                <button class="button btn btn-primary" style="width: 100%;">Registrarme ahora</button>
+                                <button class="button btn btn-primary" id="botonRegistro" style="width: 100%;">Registrarme ahora</button>
                             </form>
                         </div>
                         
@@ -124,16 +124,16 @@
                                 <fieldset>
                                     <legend class="form__label">Por favor diligencia los datos solicitados</legend>
                                     <div class="input-container">
-                                        <input name="name" id="name" class="input" type="text" placeholder="Nombre de Usuario" required data-tipo="nombre" style="width: 100%; margin: 5px; padding: 10px;">
+                                        <input name="name" id="nameInicioSesion" class="input" type="text" placeholder="Nombre de Usuario" required data-tipo="nombre" style="width: 100%; margin: 5px; padding: 10px;">
                                     </div>
                                     <div class="input-container">
-                                        <input name="email" id="email" class="input" type="email" placeholder="Email" required data-tipo="email" style="width: 100%; margin: 5px; padding: 10px;">
+                                        <input name="email" id="emailInicioSesion" class="input" type="email" placeholder="Email" required data-tipo="email" style="width: 100%; margin: 5px; padding: 10px;">
                                     </div>
                                     <div class="input-container">
-                                        <input name="password" id="password" class="input" type="password" placeholder="Contraseña" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$" title="Al menos 6 caracteres, máximo 12, debe contener una letra minúscula, una letra mayúscula, un número y no puede contener caracteres especiales." data-tipo="password" style="width: 100%; margin: 5px; padding: 10px;">
+                                        <input name="password" id="passwordInicioSesion" class="input" type="password" placeholder="Contraseña" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$" title="Al menos 6 caracteres, máximo 12, debe contener una letra minúscula, una letra mayúscula, un número y no puede contener caracteres especiales." data-tipo="password" style="width: 100%; margin: 5px; padding: 10px;">
                                     </div>
                                 </fieldset>
-                                <button class="button btn btn-primary" style="width: 100%;">Iniciar Sesión</button>
+                                <button class="button btn btn-primary" id="botonInicioSesion" style="width: 100%;">Iniciar Sesión</button>
                             </form>
                         </div>
                         
@@ -157,7 +157,7 @@
                     <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header" id="headerModalReporte">
-                            <h5 class="modal-title" id="exampleModalLabel">&#128079; ¡De antemano, gracias por contribuir!</h5>
+                            <h5 class="modal-title" id="exampleModalLabel"></h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -282,6 +282,8 @@
     integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
     crossorigin=""></script>
     <script src="js/map.js"></script>
+    <script src="registro.js"></script>
+    <script src="inicioSesion.js"></script>
     <script src="js/popup.js"></script>
 </body>
 </html>
