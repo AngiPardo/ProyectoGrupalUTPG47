@@ -6,50 +6,90 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 
-// //Seleccionado la etiqueta ul para tratarla más adelante
-// const miLista = document.querySelector('ul');
-  
-//Accediendo a los datos del JSON (por lo pronto de manera local, luego con los datos entregados por el backend con JSON)
-const miSolicitud = new Request('datosConsultados.json');
-  
-fetch(miSolicitud)
-    .then(response => response.json())
-    .then(datosObtenidosJSON => {
-      for (const datoConsultado of datosObtenidosJSON.datosConsultados) {
-        alert(response);
-        
-        if(datoConsultado.tipoReporte == 1) {
-            var tipoReporte = "DESASTRE NATURAL";
-            var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/terremoto.png"; 
-        } else if(datoConsultado.tipoReporte == 2) {
-            var tipoReporte = "ACCIDENTE VIAL";
-            var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/choque-de-autos.png";
-        } else if(datoConsultado.tipoReporte == 3) {
-            var tipoReporte = "ROBO";
-            var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/robo.png";
-        }
+var coordenadasDelReporte = document.getElementById('coordenadasReportadas');
 
-        // Visualizar popup del icono cuando se de click sobre el
-        var Icon = L.icon({
-            iconUrl: iconoUrl,
-            // shadowUrl: 'leaf-shadow.png',
+function onMapClick(e) {
+    
+    var coordenadas = e.latlng;
+    var latitud = coordenadas.lat;
+    var longitud = coordenadas.lng;
+    coordenadasDelReporte.value = latitud+ "," + longitud;
 
-            iconSize:     [50, 50], // size of the icon
-            shadowSize:   [50, 64], // size of the shadow
-            iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-            shadowAnchor: [4, 62],  // the same for the shadow
-            popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-        });
-
-        var marker = L.marker([datoConsultado.latitudReportada, datoConsultado.longitudReportada], {icon: Icon}).addTo(map);
-        var popup = L.popup();
-        marker.bindPopup(`<b>${datoConsultado.tipoReporte}</b><br>${datoConsultado.detallesDelReporte}</b><br>Fecha :${datoConsultado.fechaReporte}`).openPopup();
-      }
-    })
-    .catch(console.error);
+    var circle = L.circle([latitud, longitud], {
+        color: 'red',
+        fillColor: '#f03',
+        fillOpacity: 0.5,
+        radius: 500
+    }).addTo(map);
+}
+map.on('click', onMapClick);
 
 
-    var geoJson = {
+var eleccionTipoReporte = document.getElementById('selectorTipoReporte');
+var detallesDelReporte = document.getElementById('entradaDeLosDetalles');
+var fechaReporte = document.getElementById('fechaReporte');
+var botonEnviarElReporte = document.getElementById('botonEnviarReporte');
+
+botonEnviarElReporte.addEventListener('click',enviarReporteABackEnd);
+
+function enviarReporteABackEnd () {
+
+    var coordenadasFinalesReportadas = coordenadasDelReporte.value.split(",");
+    var latitudReportada = coordenadasFinalesReportadas[0];
+    var longitudReportada = coordenadasFinalesReportadas[1];
+
+    if(eleccionTipoReporte.value == "Elige un tipo de reporte") {
+        alert('Información incompleta');           
+    } else if(eleccionTipoReporte.value == 1) {
+        var tipoReporte = "DESASTRE NATURAL";
+        var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/terremoto.png"; 
+        alert(`[{
+            "TipoDeReporte": "${tipoReporte}",
+            "DescripcionDelReporte": "${detallesDelReporte.value}",
+            "FechaDelReporte": "${fechaReporte.value}",
+            "Latitud": "${latitudReportada}",
+            "Longitud": "${longitudReportada}"
+        }]`);
+    } else if(eleccionTipoReporte.value == 2) {
+        var tipoReporte = "ACCIDENTE VIAL";
+        var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/choque-de-autos.png";
+        alert(`[{
+            "TipoDeReporte": "${tipoReporte}",
+            "DescripcionDelReporte": "${detallesDelReporte.value}",
+            "FechaDelReporte": "${fechaReporte.value}",
+            "Latitud": "${latitudReportada}",
+            "Longitud": "${longitudReportada}"
+        }]`);
+    } else if(eleccionTipoReporte.value == 3) {
+        var tipoReporte = "ROBO";
+        var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/robo.png";
+        alert(`[{
+            "TipoDeReporte": "${tipoReporte}",
+            "DescripcionDelReporte": "${detallesDelReporte.value}",
+            "FechaDelReporte": "${fechaReporte.value}",
+            "Latitud": "${latitudReportada}",
+            "Longitud": "${longitudReportada}"
+        }]`);
+    }
+
+    var Icon = L.icon({
+        iconUrl: iconoUrl,
+        // shadowUrl: 'leaf-shadow.png',
+    
+        iconSize:     [50, 50], // size of the icon
+        shadowSize:   [50, 64], // size of the shadow
+        iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+        shadowAnchor: [4, 62],  // the same for the shadow
+        popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+    
+    var marker = L.marker([latitudReportada, longitudReportada], {icon: Icon}).addTo(map);
+
+    var popup = L.popup();
+    marker.bindPopup(`<b>${tipoReporte}</b><br>${detallesDelReporte.value}</b><br>Fecha :${fechaReporte.value}`).openPopup();
+}
+
+var geoJson = {
     "type": "FeatureCollection",
     "name": "Features",
     "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },

@@ -1,24 +1,24 @@
 
-// https://zetcode.com/javascript/jsonforeach/
-//Recibiendo la información de la base de datos
-//Método GET
-//Parseo el JSON recibido
+// // https://zetcode.com/javascript/jsonforeach/
+// //Recibiendo la información de la base de datos
+// //Método GET
+// //Parseo el JSON recibido
 
-// const logBtn = document.getElementById('log');
-// logBtn.addEventListener('click', fetchData);
+// // const logBtn = document.getElementById('log');
+// // logBtn.addEventListener('click', fetchData);
 
-// async function fetchData() {
+// // async function fetchData() {
 
-    const response = await fetch('https://irreverente.net/AppWebProyectoSeguridadCiudadana/archivoPruebaInicioSesion.json');
-    const data = await response.json();
+//     const response = await fetch('https://irreverente.net/AppWebProyectoSeguridadCiudadana/archivoPruebaInicioSesion.json');
+//     const data = await response.json();
 
-    data.forEach(obj => {
-        Object.entries(obj).forEach(([key, value]) => {
-            console.log(`${key} ${value}`);
-        });
-        console.log('-------------------');
-    });
-// }
+//     data.forEach(obj => {
+//         Object.entries(obj).forEach(([key, value]) => {
+//             console.log(`${key} ${value}`);
+//         });
+//         console.log('-------------------');
+//     });
+// // }
 
 
 
