@@ -13,7 +13,7 @@ function onMapClick(e) {
     var coordenadas = e.latlng;
     var latitud = coordenadas.lat;
     var longitud = coordenadas.lng;
-    coordenadasDelReporte.value = latitud+ "," + longitud;
+    coordenadasDelReporte.innerHTML = latitud+ "," + longitud;
 
     var circle = L.circle([latitud, longitud], {
         color: 'red',
@@ -34,9 +34,11 @@ botonEnviarElReporte.addEventListener('click',enviarReporteABackEnd);
 
 function enviarReporteABackEnd () {
 
-    var coordenadasFinalesReportadas = coordenadasDelReporte.value.split(",");
+    var coordenadasFinalesReportadas = coordenadasDelReporte.textContent.split(",");
     var latitudReportada = coordenadasFinalesReportadas[0];
     var longitudReportada = coordenadasFinalesReportadas[1];
+
+    // coordenadasDelReporte.innerHTML=`La ubicación elegida tiene las coordenadas ${latitudReportada} , ${longitudReportada}`;
 
     if(eleccionTipoReporte.value == "Elige un tipo de reporte") {
         alert('Información incompleta');           

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +17,7 @@
         <header class="row">
             <div class="col">
                 <h1> &#x1f5e3;&#xfe0f; App de seguridad ciudadana</h1>
-                <p>Mapa colaborativo de reportes de seguridad en tiempo real en Bogotá</p>
+                <!-- <p>Mapa colaborativo de reportes de seguridad en tiempo real en Bogotá</p> -->
             </div>
         </header>
     </div>
@@ -27,23 +27,20 @@
             <div class="col">
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                     <div class="container-fluid">
-                      <a class="navbar-brand" href="#map">Mapa Colaborativo</a>
+                      <a class="navbar-brand" href="#map">Bienvenid@</a>
                       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                       </button>
                       <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" data-bs-toggle="modal" data-bs-target="#exampleModal0" aria-current="page" href="">Registrate</a>
+                                <a class="nav-link" id="contactarPorCorreo">Contáctanos</a>
+                            </li>  
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="nosotros.html">Sobre Nosotros</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" data-bs-toggle="modal" data-bs-target="#exampleModal3" aria-current="page" href="">Inicia Sesión</a>
-                            </li>    
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#tablaIntegrantesEquipo">Sobre Nosotros</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#footerCompleto">Atribuciones externas</a>
+                                <a class="nav-link active bg-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3" aria-current="page" href="">CERRAR SESIÓN</a>
                             </li>
                         </ul>
                         <!-- <form class="d-flex">
@@ -181,8 +178,9 @@
                                                 <input type="date" name="" id="fechaReporte" style="width: 100%;" required>
                                                 <br>
                                                 <br>
+                                                <br>
                                                 <p>La ubicación elegida tiene las coordenadas: </p>
-                                                <input type="text" name="" id="coordenadasReportadas" style="width: 100%;">
+                                                <span id="coordenadasReportadas" style="width: 100%;"></span>
                                             </div>
                                         </li>
                                     </ul>
@@ -280,10 +278,9 @@
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
     integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
     crossorigin=""></script>
-    <script src="js/llamadoInicialDatos.js"></script>
     <script src="js/mapLogueado.js"></script>
     <script src="js/registro.js"></script>
-    <script src="js/inicioSesion.js"></script>
-    <script src="js/popup.js"></script>
+    <script src="js/cerrarSesion.js"></script>
+    <script src="js/contactar.js"></script>
 </body>
 </html>
