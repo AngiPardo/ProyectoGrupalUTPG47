@@ -16,7 +16,7 @@ fetch(miSolicitud)
     .then(response => response.json())
     .then(datosObtenidosJSON => {
       for (const datoConsultado of datosObtenidosJSON.datosConsultados) {
-        alert(response);
+        // alert(response);
         
         if(datoConsultado.tipoReporte == 1) {
             var tipoReporte = "DESASTRE NATURAL";
@@ -28,7 +28,7 @@ fetch(miSolicitud)
             var tipoReporte = "ROBO";
             var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/robo.png";
         }
-
+        alert(tipoReporte);
         // Visualizar popup del icono cuando se de click sobre el
         var Icon = L.icon({
             iconUrl: iconoUrl,
