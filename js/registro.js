@@ -6,9 +6,9 @@ var botonRegistro = document.getElementById('botonRegistro');
 botonRegistro.addEventListener('click',enviarReporteABackEnd);
 
 function enviarReporteABackEnd () {
+    alert("¡Registro Exitoso!");
    alert(`[{
     "NombreUsuario": "${nombre.value}",
-    "correoElectronico": "${email.value}",
     "contrasena": "${contrasena.value}"
-}]`); 
+}]`);
 }
