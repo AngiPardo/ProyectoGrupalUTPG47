@@ -11,24 +11,22 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   
 //Accediendo a los datos del JSON (por lo pronto de manera local, luego con los datos entregados por el backend con JSON)
 const miSolicitud = new Request('datosConsultados.json');
-  
+ 
 fetch(miSolicitud)
     .then(response => response.json())
-    .then(datosObtenidosJSON => {
-      for (const datoConsultado of datosObtenidosJSON.datosConsultados) {
-        // alert(response);
+    .then(datosConsultadosJSON => {
+      for (const datoConsultado of datosConsultadosJSON.datosConsultados) {
         
         if(datoConsultado.tipoReporte == 1) {
-            var tipoReporte = "DESASTRE NATURAL";
+            var tipoReporteConsultado = "DESASTRE NATURAL";
             var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/terremoto.png"; 
         } else if(datoConsultado.tipoReporte == 2) {
-            var tipoReporte = "ACCIDENTE VIAL";
+            var tipoReporteConsultado = "ACCIDENTE VIAL";
             var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/choque-de-autos.png";
         } else if(datoConsultado.tipoReporte == 3) {
-            var tipoReporte = "ROBO";
+            var tipoReporteConsultado = "ROBO";
             var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/robo.png";
         }
-        alert(tipoReporte);
         // Visualizar popup del icono cuando se de click sobre el
         var Icon = L.icon({
             iconUrl: iconoUrl,
@@ -40,15 +38,15 @@ fetch(miSolicitud)
             shadowAnchor: [4, 62],  // the same for the shadow
             popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
         });
-
+        
         var marker = L.marker([datoConsultado.latitudReportada, datoConsultado.longitudReportada], {icon: Icon}).addTo(map);
         var popup = L.popup();
-        marker.bindPopup(`<b>${datoConsultado.tipoReporte}</b><br>${datoConsultado.detallesDelReporte}</b><br>Fecha :${datoConsultado.fechaReporte}`).openPopup();
+        marker.bindPopup(`<b>${datoConsultado.tipoReporteConsultado}</b><br>${datoConsultado.detallesDelReporte}</b><br>Fecha :${datoConsultado.fechaReporte}`).openPopup();
       }
     })
     .catch(console.error);
 
-
+// Los siguientes son las coordenadas de las localidades de Bogotá en geoJSON
     var geoJson = {
     "type": "FeatureCollection",
     "name": "Features",

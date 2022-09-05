@@ -2,25 +2,25 @@
 	"datosConsultados": [
 		
 		{
-			"tipoReporte": "accidente",
+			"tipoReporte": "2",
 			"detallesDelReporte": "fsfs",
 			"fechaReporte": "20/07/1987",
 			"latitudReportada": "4.62971",
-			"longitudReportada": "-74.12000"
+			"longitudReportada": "-74.17000"
 		},
 		{
-			"tipoReporte": "desastre",
+			"tipoReporte": "1",
 			"detallesDelReporte": "faassfd",
 			"fechaReporte": "21/07/1987",
-			"latitudReportada": "5.62971",
-			"longitudReportada": "-75.12000"
+			"latitudReportada": "4.63971",
+			"longitudReportada": "-74.11000"
 		},
 		{
-			"tipoReporte": "¿robo",
+			"tipoReporte": "3",
 			"detallesDelReporte": "fds",
 			"fechaReporte": "22/07/1987",
-			"latitudReportada": "6.62971",
-			"longitudReportada": "-76.12000"
+			"latitudReportada": "4.65971",
+			"longitudReportada": "-74.13000"
 		}
 		
 	]

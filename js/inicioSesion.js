@@ -12,4 +12,21 @@ function enviarReporteABackEnd () {
     "contrasena": "${contrasenaInicioSesion.value}"
 }]`); 
 }
+
+// Solicitud GET (Request).
+// fetch('https://api.github.com/users/manishmshiva')
+//     // Exito
+//     .then(response => response.json())  // convertir a json
+//     .then(json => console.log(json))    //imprimir los datos en la consola
+//     .catch(err => console.log('Solicitud fallida', err)); // Capturar errores
+
+// Solicitud GET (Request) usando headers
+// fetch('https://api.github.com/users/manishmshiva', {
+//   method: "GET",
+//   headers: {"Content-type": "application/json;charset=UTF-8"}
+// })
+// .then(response => response.json()) 
+// .then(json => console.log(json)); 
+// .catch(err => console.log(err));
+
 // Cuando se regrese la confirmación del backend, se redirecciona a logueado.html
