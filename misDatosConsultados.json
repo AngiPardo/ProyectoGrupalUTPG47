@@ -1,0 +1,27 @@
+{
+	"misDatosConsultados": [
+		
+		{
+			"tipoReporte": "1",
+			"detallesDelReporte": "fsfs",
+			"fechaReporte": "20/07/1987",
+			"latitudReportada": "4.63071",
+			"longitudReportada": "-74.20000"
+		},
+		{
+			"tipoReporte": "1",
+			"detallesDelReporte": "faassfd",
+			"fechaReporte": "21/07/1987",
+			"latitudReportada": "4.66571",
+			"longitudReportada": "-74.11000"
+		},
+		{
+			"tipoReporte": "1",
+			"detallesDelReporte": "fds",
+			"fechaReporte": "22/07/1987",
+			"latitudReportada": "4.67971",
+			"longitudReportada": "-74.14000"
+		}
+		
+	]
+}

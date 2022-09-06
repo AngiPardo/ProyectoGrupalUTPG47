@@ -14,13 +14,6 @@ function onMapClick(e) {
     var latitud = coordenadas.lat;
     var longitud = coordenadas.lng;
     coordenadasDelReporte.innerHTML = latitud+ "," + longitud;
-
-    var circle = L.circle([latitud, longitud], {
-        color: 'red',
-        fillColor: '#f03',
-        fillOpacity: 0.5,
-        radius: 500
-    }).addTo(map);
 }
 map.on('click', onMapClick);
 
@@ -60,33 +53,33 @@ function enviarReporteABackEnd() {
     if(eleccionTipoReporte.value == 1) {
         var tipoReporte = "DESASTRE NATURAL";
         var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/terremoto.png"; 
-        // alert(`[{
-        //     "TipoDeReporte": "${tipoReporte}",
-        //     "DescripcionDelReporte": "${detallesDelReporte.value}",
-        //     "FechaDelReporte": "${fechaReporte.value}",
-        //     "Latitud": "${latitudReportada}",
-        //     "Longitud": "${longitudReportada}"
-        // }]`);
+        alert(`[{
+            "TipoDeReporte": "${tipoReporte}",
+            "DescripcionDelReporte": "${detallesDelReporte.value}",
+            "FechaDelReporte": "${fechaReporte.value}",
+            "Latitud": "${latitudReportada}",
+            "Longitud": "${longitudReportada}"
+        }]`);
     } else if(eleccionTipoReporte.value == 2) {
         var tipoReporte = "ACCIDENTE VIAL";
         var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/choque-de-autos.png";
-        // alert(`[{
-        //     "TipoDeReporte": "${tipoReporte}",
-        //     "DescripcionDelReporte": "${detallesDelReporte.value}",
-        //     "FechaDelReporte": "${fechaReporte.value}",
-        //     "Latitud": "${latitudReportada}",
-        //     "Longitud": "${longitudReportada}"
-        // }]`);
+        alert(`[{
+            "TipoDeReporte": "${tipoReporte}",
+            "DescripcionDelReporte": "${detallesDelReporte.value}",
+            "FechaDelReporte": "${fechaReporte.value}",
+            "Latitud": "${latitudReportada}",
+            "Longitud": "${longitudReportada}"
+        }]`);
     } else if(eleccionTipoReporte.value == 3) {
         var tipoReporte = "ROBO";
         var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/robo.png";
-        // alert(`[{
-        //     "TipoDeReporte": "${tipoReporte}",
-        //     "DescripcionDelReporte": "${detallesDelReporte.value}",
-        //     "FechaDelReporte": "${fechaReporte.value}",
-        //     "Latitud": "${latitudReportada}",
-        //     "Longitud": "${longitudReportada}"
-        // }]`);
+        alert(`[{
+            "TipoDeReporte": "${tipoReporte}",
+            "DescripcionDelReporte": "${detallesDelReporte.value}",
+            "FechaDelReporte": "${fechaReporte.value}",
+            "Latitud": "${latitudReportada}",
+            "Longitud": "${longitudReportada}"
+        }]`);
     };
 
     var Icon = L.icon({
@@ -95,11 +88,17 @@ function enviarReporteABackEnd() {
     
         iconSize:     [50, 50], // size of the icon
         shadowSize:   [50, 64], // size of the shadow
-        iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+        iconAnchor:   [25, 25], // point of the icon which will correspond to marker's location
         shadowAnchor: [4, 62],  // the same for the shadow
         popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
     
+    var circle = L.circle([latitudReportada, longitudReportada], {
+        color: 'purple',
+        fillColor: '#fff',
+        fillOpacity: 0.9,
+        radius: 1500
+    }).addTo(map);
 
     // modalReporteVisibleOInvisible.className -= "visible";
     // modalReporteVisibleOInvisible.className += "invisible";
