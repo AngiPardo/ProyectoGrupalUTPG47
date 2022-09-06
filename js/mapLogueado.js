@@ -51,46 +51,43 @@ botonEnviarElReporte.addEventListener('click',enviarReporteABackEnd);
 
 // var modalReporteVisibleOInvisible = document.getElementById('exampleModal4');
 
-function enviarReporteABackEnd () {
+function enviarReporteABackEnd() {
 
     var coordenadasFinalesReportadas = coordenadasDelReporte.textContent.split(",");
     var latitudReportada = coordenadasFinalesReportadas[0];
     var longitudReportada = coordenadasFinalesReportadas[1];
 
-    // coordenadasDelReporte.innerHTML=`La ubicación elegida tiene las coordenadas ${latitudReportada} , ${longitudReportada}`;
-    if(detallesDelReporte.value != "") {
-        if(eleccionTipoReporte.value == 1) {
-            var tipoReporte = "DESASTRE NATURAL";
-            var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/terremoto.png"; 
-            alert(`[{
-                "TipoDeReporte": "${tipoReporte}",
-                "DescripcionDelReporte": "${detallesDelReporte.value}",
-                "FechaDelReporte": "${fechaReporte.value}",
-                "Latitud": "${latitudReportada}",
-                "Longitud": "${longitudReportada}"
-            }]`);
-        } else if(eleccionTipoReporte.value == 2) {
-            var tipoReporte = "ACCIDENTE VIAL";
-            var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/choque-de-autos.png";
-            alert(`[{
-                "TipoDeReporte": "${tipoReporte}",
-                "DescripcionDelReporte": "${detallesDelReporte.value}",
-                "FechaDelReporte": "${fechaReporte.value}",
-                "Latitud": "${latitudReportada}",
-                "Longitud": "${longitudReportada}"
-            }]`);
-        } else if(eleccionTipoReporte.value == 3) {
-            var tipoReporte = "ROBO";
-            var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/robo.png";
-            alert(`[{
-                "TipoDeReporte": "${tipoReporte}",
-                "DescripcionDelReporte": "${detallesDelReporte.value}",
-                "FechaDelReporte": "${fechaReporte.value}",
-                "Latitud": "${latitudReportada}",
-                "Longitud": "${longitudReportada}"
-            }]`);
-        };
-    }
+    if(eleccionTipoReporte.value == 1) {
+        var tipoReporte = "DESASTRE NATURAL";
+        var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/terremoto.png"; 
+        // alert(`[{
+        //     "TipoDeReporte": "${tipoReporte}",
+        //     "DescripcionDelReporte": "${detallesDelReporte.value}",
+        //     "FechaDelReporte": "${fechaReporte.value}",
+        //     "Latitud": "${latitudReportada}",
+        //     "Longitud": "${longitudReportada}"
+        // }]`);
+    } else if(eleccionTipoReporte.value == 2) {
+        var tipoReporte = "ACCIDENTE VIAL";
+        var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/choque-de-autos.png";
+        // alert(`[{
+        //     "TipoDeReporte": "${tipoReporte}",
+        //     "DescripcionDelReporte": "${detallesDelReporte.value}",
+        //     "FechaDelReporte": "${fechaReporte.value}",
+        //     "Latitud": "${latitudReportada}",
+        //     "Longitud": "${longitudReportada}"
+        // }]`);
+    } else if(eleccionTipoReporte.value == 3) {
+        var tipoReporte = "ROBO";
+        var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/robo.png";
+        // alert(`[{
+        //     "TipoDeReporte": "${tipoReporte}",
+        //     "DescripcionDelReporte": "${detallesDelReporte.value}",
+        //     "FechaDelReporte": "${fechaReporte.value}",
+        //     "Latitud": "${latitudReportada}",
+        //     "Longitud": "${longitudReportada}"
+        // }]`);
+    };
 
     var Icon = L.icon({
         iconUrl: iconoUrl,
@@ -103,11 +100,14 @@ function enviarReporteABackEnd () {
         popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
     
-    var marker = L.marker([latitudReportada, longitudReportada], {icon: Icon}).addTo(map);
 
+    // modalReporteVisibleOInvisible.className -= "visible";
+    // modalReporteVisibleOInvisible.className += "invisible";
+
+    var marker = L.marker([latitudReportada, longitudReportada], {icon: Icon}).addTo(map);
+}
+
+function mostrarMiniPopups() {
     var popup = L.popup();
     marker.bindPopup(`<b>${tipoReporte}</b><br>${detallesDelReporte.value}</b><br>Fecha :${fechaReporte.value}`).openPopup();
-
-    modalReporteVisibleOInvisible.className -= "visible";
-    modalReporteVisibleOInvisible.className += "invisible";
 }

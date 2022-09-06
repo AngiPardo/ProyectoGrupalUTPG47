@@ -3,9 +3,9 @@ var emailInicioSesion = document.getElementById('emailInicioSesion');
 var contrasenaInicioSesion = document.getElementById('passwordInicioSesion');
 var botonRegistroInicioSesion = document.getElementById('botonInicioSesion');
 
-botonRegistroInicioSesion.addEventListener('click',enviarReporteABackEnd);
+botonRegistroInicioSesion.addEventListener('click',enviarReporteInicioABackEnd);
 
-function enviarReporteABackEnd () {
+function enviarReporteInicioABackEnd () {
     var valorContra = contrasenaInicioSesion.value;
     var largoContra = length.valorContra;
     alert(valorContra);

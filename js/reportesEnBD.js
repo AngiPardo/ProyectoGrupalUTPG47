@@ -1,4 +1,3 @@
-
 // //Seleccionado la etiqueta ul para tratarla más adelante
 // const miLista = document.querySelector('ul');
   

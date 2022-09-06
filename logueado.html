@@ -17,7 +17,7 @@
         <header class="row">
             <div class="col">
                 <h1> &#x1f5e3;&#xfe0f; App de seguridad ciudadana</h1>
-                <!-- <p>Mapa colaborativo de reportes de seguridad en tiempo real en Bogotá</p> -->
+                <p>Mapa colaborativo de reportes de seguridad en tiempo real en Bogotá</p>
             </div>
         </header>
     </div>
@@ -64,7 +64,8 @@
 
     <div class="container">
         <div class="row">
-            <div class="col" id="columnaDeModal4">
+            <div class="col">
+            <!-- <div class="col" id="columnaDeModal4"> -->
                 
                 <!-- Modal Reporte en display none por defecto y controlada en map.js-->
                 <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -89,9 +90,10 @@
                                           <br>
                                         <li>
                                             <div>
-                                                <textarea name="" id="entradaDeLosDetalles" cols="53" rows="5" placeholder="Describe aquí lo sucedido en esta ubicación" required></textarea>
+                                                <textarea name="" id="entradaDeLosDetalles" cols="53" rows="5" placeholder="Describe aquí lo sucedido en esta ubicación (opcional)"></textarea>
                                                 <br>
-                                                <p>¿Cuándo ocurrió?</p>
+                                                <br>
+                                                <p style="color: black;">¿Cuándo ocurrió?</p>
                                                 <input type="date" name="" id="fechaReporte" style="width: 100%;" required>
                                                 <br>
                                                 <br>
@@ -101,20 +103,14 @@
                                             </div>
                                         </li>
                                         <hr>
-                                        <li>
-                                            <div>
-                                                <!-- <button type="submit" class="btn btn-primary"  id="botonEnviarReporte" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModal2">Enviar mi reporte ahora</button> -->
-                                                <button type="submit" class="btn btn-primary" id="botonEnviarReporte"  style="font-size: larger; width: 100%;">Enviar mi reporte ahora</button>
-                                            </div>
-                                        </li>
                                     </ul>
                                 </div>
                             </form>
                         </div>
                         
-                        <!-- <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary"  id="botonEnviarReporte" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModal2">Enviar mi reporte ahora</button>
-                        </div> -->
+                        <div class="modal-footer">
+                            <button style="color: aliceblue; font-weight: bold; background-color: #4C4181;" class="btn btn-primary"  id="botonEnviarReporte" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModal2">Enviar mi reporte ahora</button>
+                        </div>
                     </div>
                     </div>
                 </div>
@@ -162,6 +158,5 @@
     <script src="js/contactar.js"></script>
     <script src="js/reportesEnBD.js"></script>
     <script src="js/localidadesBogota.js"></script>
-    <script src="js/reporte.js"></script>
 </body>
 </html>
