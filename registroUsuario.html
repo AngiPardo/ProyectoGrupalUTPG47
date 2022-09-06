@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,7 +23,6 @@
     </div>
 
     <hr>
-
     <div class="container">
         <div class="row">
             <div class="col">
@@ -49,7 +48,7 @@
                             </li>  
                         </ul>
                         <!-- <form class="d-flex">
-                          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                          <input class="for m-control me-2" type="search" placeholder="Search" aria-label="Search">
                           <button class="btn btn-outline-success" type="submit">Search</button>
                         </form> -->
                       </div>
@@ -58,36 +57,24 @@
             </div>
         </div>
     </div>
-
-    <hr>
-    <div class="container" id="tablaIntegrantesEquipo">
+    <div class="container" style="padding: 5%; margin-top: 3%; border-style: solid; border-radius: 0%; border-color: black; background-color: white;">
         <div class="row">
-            <div class="col">
-                <div class="table-responsive">
-                    <table class="table table-striped table-hover table-sm">
-                        <caption >Lista de instrucciones de uso</caption>
-                        <thead>
-                            <tr class="table-dark text-center">
-                                <th>Nombre</th>
-                                <th>Descripción</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="text-center">
-                                <td>Reportar evento</td>
-                                <td>Debes registrarte en la página e iniciar sesión para realizar tus reportes, enseguida elijes el tipo y descripción de tu denuncia.</td>
-                            </tr>
-                            <tr class="text-center">
-                                <td>Eliminar evento</td>
-                                <td>Habiendo iniciado sesión, toca tu reporte en el mapa y selecciona el botón "Eliminar".</td>
-                            </tr>
-                            <tr class="text-center">
-                                <td>Editar evento</td>
-                                <td>Habiendo iniciado sesión, toca tu reporte en el mapa y selecciona el botón "Editar".</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div class="column">
+                <form action="#map" class="formulario flex flex--column" id="formRegistroUsuarioRepor">
+                    <fieldset>
+                        <legend class="form__label" style="color: black;">Por favor registrate diligenciando los datos solicitados</legend>
+                        <div class="input-container">
+                            <input name="name" id="nameRegistro" class="input" type="text" placeholder="Nombre de Usuario" required data-tipo="nombre" style="width: 100%; margin: 5px; padding: 10px;">
+                        </div>
+                        <!-- <div class="input-container">
+                            <input name="email" id="emailRegistro" class="input" type="email" placeholder="Email" required data-tipo="email" style="width: 100%; margin: 5px; padding: 10px;">
+                        </div> -->
+                        <div class="input-container">
+                            <input name="password" id="passwordRegistro" class="input" type="password" placeholder="Contraseña" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$" title="Al menos 6 caracteres, máximo 12, debe contener una letra minúscula, una letra mayúscula, un número y no puede contener caracteres especiales." data-tipo="password" style="width: 100%; margin: 5px; padding: 10px;">
+                        </div>
+                    </fieldset>
+                    <button class="button btn btn-primary" id="botonRegistro" style="width: 100%;">Registrarme ahora</button>
+                </form>
             </div>
         </div>
     </div>
@@ -97,8 +84,10 @@
     integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
     crossorigin=""></script>
     <!-- <script src="js/llamadoInicialDatos.js"></script> -->
+    <script src="js/map.js"></script>
     <script src="js/registro.js"></script>
     <script src="js/inicioSesion.js"></script>
     <script src="js/contactar.js"></script>
+    <!-- <script src="js/popup.js"></script> -->
 </body>
 </html>

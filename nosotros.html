@@ -35,7 +35,7 @@
                       <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" data-bs-toggle="modal" data-bs-target="#exampleModal0" aria-current="page" href="">¡Regístrate!</a>
+                                <a class="nav-link active" href="registroUsuario.html">¡Regístrate!</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="contactarPorCorreo">Contáctanos</a>
@@ -44,7 +44,7 @@
                                 <a class="nav-link active" aria-current="page" href="nosotros.html">Sobre Nosotros</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active bg-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3" aria-current="page" href="">INICIAR SESIÓN</a>
+                                <a class="nav-link active bg-primary" href="inicioSesion.html">INICIAR SESIÓN</a>
                             </li>  
                         </ul>
                         <!-- <form class="d-flex">
@@ -103,89 +103,6 @@
             </div>
         </div>
     </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                
-                <!-- Modal Registro Usuario Reportante-->
-                <div class="modal fade" id="exampleModal0" tabindex="-1" aria-labelledby="exampleModalLabel0" aria-hidden="true">
-                    <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header" id="headerModalRegistro">
-                            <h5 class="modal-title" id="exampleModalLabel0"></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-
-                            <form action="#map" class="formulario flex flex--column" id="formRegistroUsuarioRepor">
-                                <fieldset>
-                                    <legend class="form__label">Por favor diligencia los datos solicitados</legend>
-                                    <div class="input-container">
-                                        <input name="name" id="nameRegistro" class="input" type="text" placeholder="Nombre de Usuario" required data-tipo="nombre" style="width: 100%; margin: 5px; padding: 10px;">
-                                    </div>
-                                    <!-- <div class="input-container">
-                                        <input name="email" id="emailRegistro" class="input" type="email" placeholder="Email" required data-tipo="email" style="width: 100%; margin: 5px; padding: 10px;">
-                                    </div> -->
-                                    <div class="input-container">
-                                        <input name="password" id="passwordRegistro" class="input" type="password" placeholder="Contraseña" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$" title="Al menos 6 caracteres, máximo 12, debe contener una letra minúscula, una letra mayúscula, un número y no puede contener caracteres especiales." data-tipo="password" style="width: 100%; margin: 5px; padding: 10px;">
-                                    </div>
-                                </fieldset>
-                                <button class="button btn btn-primary" id="botonRegistro" style="width: 100%;">Registrarme ahora</button>
-                            </form>
-                        </div>
-                        
-                        <!-- <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" id="botonEnviarReporte" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModal2">Registrarme ahora</button>
-                        </div> -->
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                
-                <!-- Modal Inicio de Sesión Usuario Reportante-->
-                <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
-                    <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header" id="headerModalInicioSesion">
-                            <h5 class="modal-title" id="exampleModalLabel0"></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-
-                            <form action="#map" class="formulario flex flex--column">
-                                <fieldset>
-                                    <legend class="form__label">Por favor diligencia los datos solicitados</legend>
-                                    <div class="input-container">
-                                        <input name="name" id="nameInicioSesion" class="input" type="text" placeholder="Nombre de Usuario" required data-tipo="nombre" style="width: 100%; margin: 5px; padding: 10px;">
-                                    </div>
-                                    <!-- <div class="input-container">
-                                        <input name="email" id="emailInicioSesion" class="input" type="email" placeholder="Email" required data-tipo="email" style="width: 100%; margin: 5px; padding: 10px;">
-                                    </div> -->
-                                    <div class="input-container">
-                                        <input name="password" id="passwordInicioSesion" class="input" type="password" placeholder="Contraseña" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$" title="Al menos 6 caracteres, máximo 12, debe contener una letra minúscula, una letra mayúscula, un número y no puede contener caracteres especiales." data-tipo="password" style="width: 100%; margin: 5px; padding: 10px;">
-                                    </div>
-                                </fieldset>
-                                <button class="button btn btn-primary" id="botonInicioSesion" style="width: 100%;">Iniciar Sesión</button>
-                            </form>
-                        </div>
-                        
-                        <!-- <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary"  id="botonEnviarReporte" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModal2">Iniciar Sesión</button>
-                        </div> -->
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"

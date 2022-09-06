@@ -6,6 +6,10 @@ var botonRegistroInicioSesion = document.getElementById('botonInicioSesion');
 botonRegistroInicioSesion.addEventListener('click',enviarReporteABackEnd);
 
 function enviarReporteABackEnd () {
+    var valorContra = contrasenaInicioSesion.value;
+    var largoContra = length.valorContra;
+    alert(valorContra);
+    if(contrasenaInicioSesion.value)
     alert("¡Inicio Exitoso!");
    alert(`[{
     "NombreUsuario": "${nombreInicioSesion.value}",
