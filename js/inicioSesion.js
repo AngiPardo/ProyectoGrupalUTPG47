@@ -1,14 +1,10 @@
 var nombreInicioSesion = document.getElementById('nameInicioSesion');
-var emailInicioSesion = document.getElementById('emailInicioSesion');
 var contrasenaInicioSesion = document.getElementById('passwordInicioSesion');
 var botonRegistroInicioSesion = document.getElementById('botonInicioSesion');
 
 botonRegistroInicioSesion.addEventListener('click',enviarReporteInicioABackEnd);
 
 function enviarReporteInicioABackEnd () {
-    var valorContra = contrasenaInicioSesion.value;
-    var largoContra = length.valorContra;
-    alert(valorContra);
     if(contrasenaInicioSesion.value)
     alert("¡Inicio Exitoso!");
    alert(`[{

@@ -42,18 +42,19 @@ var botonEnviarElReporte = document.getElementById('botonEnviarReporte');
 
 botonEnviarElReporte.addEventListener('click',enviarReporteABackEnd);
 
-// var modalReporteVisibleOInvisible = document.getElementById('exampleModal4');
-
 function enviarReporteABackEnd() {
 
     var coordenadasFinalesReportadas = coordenadasDelReporte.textContent.split(",");
     var latitudReportada = coordenadasFinalesReportadas[0];
     var longitudReportada = coordenadasFinalesReportadas[1];
 
+    var identificadorUnico = uuid.v4();
+
     if(eleccionTipoReporte.value == 1) {
         var tipoReporte = "DESASTRE NATURAL";
         var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/terremoto.png"; 
         alert(`[{
+            "idDeReporte": "${identificadorUnico}",
             "TipoDeReporte": "${tipoReporte}",
             "DescripcionDelReporte": "${detallesDelReporte.value}",
             "FechaDelReporte": "${fechaReporte.value}",
@@ -64,6 +65,7 @@ function enviarReporteABackEnd() {
         var tipoReporte = "ACCIDENTE VIAL";
         var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/choque-de-autos.png";
         alert(`[{
+            "idDeReporte": "${identificadorUnico}",
             "TipoDeReporte": "${tipoReporte}",
             "DescripcionDelReporte": "${detallesDelReporte.value}",
             "FechaDelReporte": "${fechaReporte.value}",
@@ -74,6 +76,7 @@ function enviarReporteABackEnd() {
         var tipoReporte = "ROBO";
         var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/robo.png";
         alert(`[{
+            "idDeReporte": "${identificadorUnico}",
             "TipoDeReporte": "${tipoReporte}",
             "DescripcionDelReporte": "${detallesDelReporte.value}",
             "FechaDelReporte": "${fechaReporte.value}",
@@ -90,7 +93,7 @@ function enviarReporteABackEnd() {
         shadowSize:   [50, 64], // size of the shadow
         iconAnchor:   [25, 25], // point of the icon which will correspond to marker's location
         shadowAnchor: [4, 62],  // the same for the shadow
-        popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+        popupAnchor:  [10, -35] // point from which the popup should open relative to the iconAnchor
     });
     
     var circle = L.circle([latitudReportada, longitudReportada], {
@@ -100,13 +103,7 @@ function enviarReporteABackEnd() {
         radius: 1500
     }).addTo(map);
 
-    // modalReporteVisibleOInvisible.className -= "visible";
-    // modalReporteVisibleOInvisible.className += "invisible";
-
     var marker = L.marker([latitudReportada, longitudReportada], {icon: Icon}).addTo(map);
-}
-
-function mostrarMiniPopups() {
     var popup = L.popup();
     marker.bindPopup(`<b>${tipoReporte}</b><br>${detallesDelReporte.value}</b><br>Fecha :${fechaReporte.value}`).openPopup();
 }

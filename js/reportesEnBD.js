@@ -40,6 +40,19 @@ fetch(miSolicitud, {
         var marker = L.marker([datoConsultado.latitudReportada, datoConsultado.longitudReportada], {icon: Icon}).addTo(map);
         var popup = L.popup();
         marker.bindPopup(`<b>${tipoReporteConsultado}</b><br>${datoConsultado.detallesDelReporte}</b><br>Fecha :${datoConsultado.fechaReporte}`).openPopup();
+
+        // alert(botonEnviarElReporte.className.includes('invisible'));
+
+        // if(botonEnviarElReporte.className.includes('invisible')) {
+        //   botonEnviarElReporte.className -= ' invisible';
+        //   botonEnviarElReporte.className += ' visible';
+
+        //   botonEditar.className -= ' visible';
+        //   botonEditar.className += ' invisible';
+
+        //   botonEliminar.className -= ' visible';
+        //   botonEliminar.className += ' invisible';
+        // }
       }
     })
     .catch(console.error);

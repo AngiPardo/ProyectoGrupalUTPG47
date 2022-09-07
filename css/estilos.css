@@ -65,10 +65,10 @@ footer {
     color: #000;
 }
 
-/* .invisible {
+.invisible {
     display: none;
 }
 
 .visible {
-    display: ;
-} */
+    display: inline-block;
+}
