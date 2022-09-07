@@ -10,6 +10,10 @@ header {
     border-radius: 10px;
 }
 
+a:link, a:visited, a:active {
+    text-decoration:none;
+}
+
 #map {
     height: 500px;
     width: 100%;

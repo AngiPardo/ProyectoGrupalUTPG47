@@ -34,7 +34,7 @@ hoy = ano + '-' + mes + '-' + dia;
 document.getElementById("fechaReporte").setAttribute("max", hoy);
 document.getElementById("fechaReporte").setAttribute("value", hoy);
 
-
+var IDUnicoReporte = document.getElementById('IDReportado');
 var eleccionTipoReporte = document.getElementById('selectorTipoReporte');
 var detallesDelReporte = document.getElementById('entradaDeLosDetalles');
 var fechaReporte = document.getElementById('fechaReporte');
@@ -42,19 +42,21 @@ var botonEnviarElReporte = document.getElementById('botonEnviarReporte');
 
 botonEnviarElReporte.addEventListener('click',enviarReporteABackEnd);
 
+
 function enviarReporteABackEnd() {
 
     var coordenadasFinalesReportadas = coordenadasDelReporte.textContent.split(",");
     var latitudReportada = coordenadasFinalesReportadas[0];
     var longitudReportada = coordenadasFinalesReportadas[1];
 
-    var identificadorUnico = uuid.v4();
+    IDUnicoReporte = uuid.v4();
+    alert(IDUnicoReporte);
 
     if(eleccionTipoReporte.value == 1) {
         var tipoReporte = "DESASTRE NATURAL";
         var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/terremoto.png"; 
         alert(`[{
-            "idDeReporte": "${identificadorUnico}",
+            "idDeReporte": "${IDUnicoReporte}",
             "TipoDeReporte": "${tipoReporte}",
             "DescripcionDelReporte": "${detallesDelReporte.value}",
             "FechaDelReporte": "${fechaReporte.value}",
@@ -65,7 +67,7 @@ function enviarReporteABackEnd() {
         var tipoReporte = "ACCIDENTE VIAL";
         var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/choque-de-autos.png";
         alert(`[{
-            "idDeReporte": "${identificadorUnico}",
+            "idDeReporte": "${IDUnicoReporte}",
             "TipoDeReporte": "${tipoReporte}",
             "DescripcionDelReporte": "${detallesDelReporte.value}",
             "FechaDelReporte": "${fechaReporte.value}",
@@ -76,7 +78,7 @@ function enviarReporteABackEnd() {
         var tipoReporte = "ROBO";
         var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/robo.png";
         alert(`[{
-            "idDeReporte": "${identificadorUnico}",
+            "idDeReporte": "${IDUnicoReporte}",
             "TipoDeReporte": "${tipoReporte}",
             "DescripcionDelReporte": "${detallesDelReporte.value}",
             "FechaDelReporte": "${fechaReporte.value}",
@@ -106,4 +108,24 @@ function enviarReporteABackEnd() {
     var marker = L.marker([latitudReportada, longitudReportada], {icon: Icon}).addTo(map);
     var popup = L.popup();
     marker.bindPopup(`<b>${tipoReporte}</b><br>${detallesDelReporte.value}</b><br>Fecha :${fechaReporte.value}`).openPopup();
+}
+
+
+// var popupReporte = document.getElementById('popupReporteUsuario');
+var clicksEnMapa = document.getElementById('map');
+
+
+clicksEnMapa.addEventListener('click', noHacerNada);
+clicksEnMapa.addEventListener('dblclick', mostrarPopupDeReporte);
+
+function noHacerNada() {
+
+    clicksEnMapa.removeAttribute('data-bs-toggle');
+    clicksEnMapa.removeAttribute('data-bs-target');
+}
+
+function mostrarPopupDeReporte() {
+
+    clicksEnMapa.setAttribute('data-bs-toggle', 'modal');
+    clicksEnMapa.setAttribute('data-bs-target', '#exampleModal4');
 }
