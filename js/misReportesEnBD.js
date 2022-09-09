@@ -1,6 +1,3 @@
-// //Seleccionado la etiqueta ul para tratarla más adelante
-// const miLista = document.querySelector('ul');
-  
 //Accediendo a los datos del JSON (por lo pronto de manera local, luego con los datos entregados por el backend con JSON)
 const miSolicitud2 = new Request('misDatosConsultados.json');
 
@@ -38,18 +35,25 @@ fetch(miSolicitud2, {
             shadowAnchor: [4, 62],  // the same for the shadow
             popupAnchor:  [10, -35] // point from which the popup should open relative to the iconAnchor
         });
-        // alert(idUnico);
-        var textoPopup = `<b>${tipoReporteConsultado}</b><br>${miDatoConsultado.detallesDelReporte}</b><br>Fecha :${miDatoConsultado.fechaReporte}. <br><button data-bs-toggle="modal" data-bs-target="#exampleModal5" onclick="enviarEdicionABackEnd" style="margin: 5px; padding: 5px; background-color: lightblue;" id="btnEditar">Editar</button><button data-bs-toggle="modal" data-bs-target="#exampleModal6" onclick="enviarEliminacionABackEnd" style="margin: 5px; padding: 5px; background-color: lightblue;" id="btnEliminar">Eliminar</button>`;
 
-        // var botonEditar = document.getElementById('btnEditar');
-        // var botonEliminar = document.getElementById('btnEliminar');
+        var textoPopup = `<span style= "color: transparent;" id="idInvisibleEnMiniPopUP">${idReporte}</span><br><b>${tipoReporteConsultado}</b><br>${miDatoConsultado.detallesDelReporte}</b><br>Fecha :${miDatoConsultado.fechaReporte} <br><button onclick="verDataid" data-id="${idReporte}" data-bs-toggle="modal" data-bs-target="#exampleModal5" style="margin: 5px; padding: 5px; background-color: lightblue;" id="btnEditarOEliminar">Editar o eliminar mis reportes</button>`;
 
-        // botonEditar.addEventListener('click', enviarEdicionABackEnd);
-        // botonEliminar.addEventListener('click', enviarEliminacionABackEnd);
+      
+
+        //USAR LOS IDENTIFICADORES UNICOS GENERADOS CON LA LIBRERÍA UUID PARA EDITAR EL EVENTO
+
+        // Valor fijo del reporte previo
+        var tipoRep = document.getElementById('tipoDelReporte');
+        tipoRep.innerHTML = tipoReporteConsultado;
+
+        // var idRep = document.getElementById('idInvisibleEnMiniPopUP');
+        
 
         var marker = L.marker([miDatoConsultado.latitudReportada, miDatoConsultado.longitudReportada], {icon: Icon}).addTo(map);
         var popup = L.popup();
         marker.bindPopup(textoPopup).openPopup();
+        // var i = marker
+        // alert(i);
 
         //Reportes hechos por el usuario
         var circle = L.circle([miDatoConsultado.latitudReportada, miDatoConsultado.longitudReportada], {
@@ -57,58 +61,58 @@ fetch(miSolicitud2, {
           fillColor: '#fff',
           fillOpacity: 0.9,
           radius: 1500
-      }).addTo(map);
+        }).addTo(map);
+
+
+        // Cuando se presiona el botón editaroeliminar
+
+        var botonEditarOEliminar = document.getElementById('btnEditarOEliminar');
+
+        // botonEditarOEliminar.addEventListener('click', verDataid);
+        
+        // function verDataid() {
+        var attributeDataid = botonEditarOEliminar.getAttribute('data-id');
+        //   alert(attributeDataid);
+        // }
+
+        //Editar
+        
+        var botonEditar = document.getElementById('botonEditarReporte');
+
+        botonEditar.addEventListener('click', enviarEdicionABackEnd);
+        
+        function enviarEdicionABackEnd() {
+          // alert(attributeDataid);
+          //relativo a peticion PUT
+          // alert(idReporte);
+          // alert(attributeDataid==miDatoConsultado.idDeReporte);
+            if(attributeDataid==miDatoConsultado.idDeReporte) {
+              alert(`Solicitud de edición del reporte con el id [{
+                "idDeReporte": "${attributeDataid}"
+              }]`);
+            }
+        }
+
+
+        // //USAR LOS IDENTIFICADORES UNICOS GENERADOS CON LA LIBRERÍA UUID PARA ELIMINAR EL EVENTO
+
+        var botonEliminar = document.getElementById('botonEliminarReporte');
+
+        botonEliminar.addEventListener('click', enviarEliminacionABackEnd);
+
+        function enviarEliminacionABackEnd() {
+
+            //relativo a peticion DELETE
+          if(attributeDataid==miDatoConsultado.idDeReporte) {
+            alert(`Solicitud de eliminación del reporte con el id [{
+              "idDeReporte": "${attributeDataid}"
+            }]`);
+          }
+        }
       }
     })
     .catch(console.error);
 
-
-
-//USAR LOS IDENTIFICADORES UNICOS GENERADOS CON LA LIBRERÍA UUID PARA EDITAR EL EVENTO
-
-// var TipoReporteEditado = document.getElementById('selectorTipoReporte');
-// var DetallesDelReporteEditado = document.getElementById('entradaDeLosDetalles');
-// var FechaReporteEditado = document.getElementById('fechaReporte');
-
-
-// TipoReporteEditado = tipoReporteConsultado;
-// DetallesDelReporteEditado.value = miDatoConsultado.detallesDelReporte;
-// FechaReporteEditado.value = miDatoConsultado.fechaReporte;
-// latitudReportada = miDatoConsultado.latitudReportada;
-// longitudReportada = miDatoConsultado.longitudReportada;
-
-
-// var botonEditar = document.getElementById('botonEditarReporte');
-
-// botonEditar.addEventListener('click', enviarEdicionABackEnd);
-
-function enviarEdicionABackEnd() {
-    //relativo a peticion PUT
-    alert("Editar");
-    // alert(`[{
-    //     "idDeReporte": "${idReporte}",
-    //     "TipoDeReporte": "${TipoReporteEditado}",
-    //     "DescripcionDelReporte": "${DetallesDelReporteEditado.value}",
-    //     "FechaDelReporte": "${FechaReporteEditado.value}",
-    //     "Latitud": "${latitudReportada}",
-    //     "Longitud": "${longitudReportada}"
-    // }]`);
-}
-
-
-//USAR LOS IDENTIFICADORES UNICOS GENERADOS CON LA LIBRERÍA UUID PARA ELIMINAR EL EVENTO
-
-// var botonEliminar = document.getElementById('botonEliminarReporte');
-
-// botonEliminar.addEventListener('click', enviarEliminacionABackEnd);
-
-function enviarEliminacionABackEnd() {
-    //relativo a peticion PUT
-    alert("Eliminar");
-    // alert(`[{
-    //     "idDeReporte": "${idReporte}",
-    // }]`);
-}
 
 
 

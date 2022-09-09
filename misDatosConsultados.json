@@ -2,15 +2,15 @@
 	"misDatosConsultados": [
 		
 		{
-			"idDeReporte": "fbdgffghgbvcdcddcdcdfgbghtyhtrhgr",
-			"tipoReporte": "1",
+			"idDeReporte": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+			"tipoReporte": "2",
 			"detallesDelReporte": "fsfs",
 			"fechaReporte": "20/07/1987",
 			"latitudReportada": "4.63071",
 			"longitudReportada": "-74.20000"
 		},
 		{
-			"idDeReporte": "fbdgffghgbvfgbghtyhaaaaaaaaaaaaatrhgr",
+			"idDeReporte": "bbbbbbbbbbbbbbbbbbbbb",
 			"tipoReporte": "1",
 			"detallesDelReporte": "faassfd",
 			"fechaReporte": "21/07/1987",
@@ -18,8 +18,8 @@
 			"longitudReportada": "-74.11000"
 		},
 		{
-			"idDeReporte": "dssdfsefbdgffghgbvfgbghtyhtrhgr",
-			"tipoReporte": "1",
+			"idDeReporte": "ccccccccccccccccccccccc",
+			"tipoReporte": "3",
 			"detallesDelReporte": "fds",
 			"fechaReporte": "22/07/1987",
 			"latitudReportada": "4.67971",

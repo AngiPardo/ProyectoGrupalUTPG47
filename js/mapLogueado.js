@@ -13,7 +13,7 @@ function onMapClick(e) {
     var coordenadas = e.latlng;
     var latitud = coordenadas.lat;
     var longitud = coordenadas.lng;
-    coordenadasDelReporte.innerHTML = latitud+ "," + longitud;
+    coordenadasDelReporte.innerHTML = latitud + "," + longitud;
 }
 map.on('click', onMapClick);
 
@@ -31,8 +31,12 @@ if (mes < 10) {
  }
     
 hoy = ano + '-' + mes + '-' + dia;
+
 document.getElementById("fechaReporte").setAttribute("max", hoy);
 document.getElementById("fechaReporte").setAttribute("value", hoy);
+
+document.getElementById("fechaReporteEdicion").setAttribute("max", hoy);
+document.getElementById("fechaReporteEdicion").setAttribute("value", hoy);
 
 var IDUnicoReporte = document.getElementById('IDReportado');
 var eleccionTipoReporte = document.getElementById('selectorTipoReporte');
@@ -50,7 +54,6 @@ function enviarReporteABackEnd() {
     var longitudReportada = coordenadasFinalesReportadas[1];
 
     IDUnicoReporte = uuid.v4();
-    alert(IDUnicoReporte);
 
     if(eleccionTipoReporte.value == 1) {
         var tipoReporte = "DESASTRE NATURAL";
@@ -113,19 +116,19 @@ function enviarReporteABackEnd() {
 
 // var popupReporte = document.getElementById('popupReporteUsuario');
 var clicksEnMapa = document.getElementById('map');
-
+// alert(clicksEnMapa);
 
 clicksEnMapa.addEventListener('click', noHacerNada);
 clicksEnMapa.addEventListener('dblclick', mostrarPopupDeReporte);
 
 function noHacerNada() {
-
+    // alert("noHacerNada");
     clicksEnMapa.removeAttribute('data-bs-toggle');
     clicksEnMapa.removeAttribute('data-bs-target');
 }
 
 function mostrarPopupDeReporte() {
-
+    alert("Da click sobre un punto aproximado a la ubicación deseada");
     clicksEnMapa.setAttribute('data-bs-toggle', 'modal');
     clicksEnMapa.setAttribute('data-bs-target', '#exampleModal4');
 }

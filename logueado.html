@@ -73,7 +73,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <!-- Modal Reporte en display none por defecto y controlada en mapLogueado.js-->
+                <!-- Modal Reporte controlada en mapLogueado.js-->
                 <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                     <div class="modal-content">
@@ -103,8 +103,8 @@
                                                 <input type="date" name="" id="fechaReporte" style="width: 100%;" required>
                                                 
                                                 <!-- <p style="color: transparent;">La ubicación elegida tiene las coordenadas: </p> -->
-                                                <p style="color: transparent;" id="coordenadasReportadas"></p>
-                                                <p style="color: transparent;" id="IDReportado"></p>
+                                                <span style="color: transparent;" id="coordenadasReportadas"></span>
+                                                <span style="color: transparent;" id="IDReportado"></span>
                                             </div>
                                         </li>
                                         <hr>
@@ -115,6 +115,7 @@
                         
                         <div class="modal-footer">
                             <button style ="display: block; color: aliceblue; font-weight: bold; background-color: #4C4181;" class="btn btn-primary"  id="botonEnviarReporte" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModal2">Reportar evento</button>
+                            <button style ="color: aliceblue; font-weight: bold; background-color: #4C4181;" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModal2">Cancelar</button>
                         </div>
                     </div>
                     </div>
@@ -122,11 +123,10 @@
             </div>
         </div>
     </div>
-
+    <!-- Modal de edicion/eliminacion -->
     <div class="container">
         <div class="row">
             <div class="col">
-                <!-- Modal Reporte en display none por defecto y controlada en mapLogueado.js-->
                 <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                     <div class="modal-content">
@@ -139,12 +139,7 @@
                                 <div>
                                     <ul>
                                         <li>
-                                            <select class="form-select" id="selectorTipoReporte" aria-label="Default select example" required>
-                                                <!-- <option selected>Elige un tipo de reporte</option> -->
-                                                <option value="1">Desastre natural</option>
-                                                <option value="2">Accidente vial</option>
-                                                <option value="3">Robo</option>
-                                            </select>
+                                            <span style="color: black;" class="visible" id="tipoDelReporte"></span>
                                         </li>
                                           <br>
                                         <li>
@@ -153,11 +148,11 @@
                                                 <br>
                                                 <br>
                                                 <p style="color: black;">¿Cuándo ocurrió?</p>
-                                                <input type="date" name="" id="fechaReporte" style="width: 100%;" required>
+                                                <input type="date" name="" id="fechaReporteEdicion" style="width: 100%;" required>
                                                 
                                                 <!-- <p style="color: transparent;">La ubicación elegida tiene las coordenadas: </p> -->
-                                                <p style="color: transparent;" id="coordenadasReportadas"></p>
-                                                <p style="color: transparent;" id="IDReportado"></p>
+                                                <span style="color: transparent;" id="coordenadasReportadas"></span>
+                                                <span style="color: transparent;" id="IDReportado"></span>
                                             </div>
                                         </li>
                                         <hr>
@@ -167,7 +162,9 @@
                         </div>
                         
                         <div class="modal-footer">
-                            <button style ="color: aliceblue; font-weight: bold; background-color: #4C4181;" class="btn btn-primary" id="botonEditarReporte" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModal2">Editar reporte</button>
+                            <button style ="display: block; color: aliceblue; font-weight: bold; background-color: #4C4181;" class="btn btn-primary"  id="botonEditarReporte" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModal2">Guardar cambios</button>
+                            <button style ="display: block; color: aliceblue; font-weight: bold; background-color: #4C4181;" class="btn btn-primary"  id="botonEliminarReporte" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModal2">Eliminar evento</button>
+                            <button style ="color: aliceblue; font-weight: bold; background-color: #4C4181;" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModal2">Cancelar</button>
                         </div>
                     </div>
                     </div>
@@ -175,61 +172,6 @@
             </div>
         </div>
     </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <!-- Modal Reporte en display none por defecto y controlada en mapLogueado.js-->
-                <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header" id="headerModalReporte">
-                            <h5 class="modal-title" id="exampleModalLabel"></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div>
-                            <form action="" class="d-flex" id="formularioReporte">
-                                <div>
-                                    <ul>
-                                        <li>
-                                            <select class="form-select" id="selectorTipoReporte" aria-label="Default select example" required>
-                                                <!-- <option selected>Elige un tipo de reporte</option> -->
-                                                <option value="1">Desastre natural</option>
-                                                <option value="2">Accidente vial</option>
-                                                <option value="3">Robo</option>
-                                            </select>
-                                        </li>
-                                          <br>
-                                        <li>
-                                            <div>
-                                                <textarea name="" id="entradaDeLosDetalles" cols="53" rows="5" placeholder="Describe aquí lo sucedido en esta ubicación (opcional)"></textarea>
-                                                <br>
-                                                <br>
-                                                <p style="color: black;">¿Cuándo ocurrió?</p>
-                                                <input type="date" name="" id="fechaReporte" style="width: 100%;" required>
-                                                
-                                                <!-- <p style="color: transparent;">La ubicación elegida tiene las coordenadas: </p> -->
-                                                <p style="color: transparent;" id="coordenadasReportadas"></p>
-                                                <p style="color: transparent;" id="IDReportado"></p>
-                                            </div>
-                                        </li>
-                                        <hr>
-                                    </ul>
-                                </div>
-                            </form>
-                        </div>
-                        
-                        <div class="modal-footer">
-                            <button style ="color: aliceblue; font-weight: bold; background-color: #4C4181;" class="btn btn-primary" id="botonEliminarReporte" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModal2">Eliminar reporte</button>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-  
 
     <div class="container">
         <div class="row">

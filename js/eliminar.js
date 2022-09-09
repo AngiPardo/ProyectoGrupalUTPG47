@@ -16,7 +16,7 @@
 
 // function enviarEliminacionABackEnd() {
 //     //relativo a peticion PUT
-//     alert("Eliminar");
+//     alert(TipoReporteAEliminar);
 //     alert(`[{
 //         "TipoDeReporte": "${TipoReporteAEliminar}",
 //         "DescripcionDelReporte": "${DetallesDelReporteAEliminar.value}",
