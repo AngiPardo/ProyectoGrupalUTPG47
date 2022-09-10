@@ -111,6 +111,7 @@ function enviarReporteABackEnd() {
     var marker = L.marker([latitudReportada, longitudReportada], {icon: Icon}).addTo(map);
     var popup = L.popup();
     marker.bindPopup(`<b>${tipoReporte}</b><br>${detallesDelReporte.value}</b><br>Fecha :${fechaReporte.value}`).openPopup();
+    // alert("pillar");
 }
 
 

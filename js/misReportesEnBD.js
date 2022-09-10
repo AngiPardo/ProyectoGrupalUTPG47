@@ -28,7 +28,6 @@ fetch(miSolicitud2, {
         var Icon = L.icon({
             iconUrl: iconoUrl,
             // shadowUrl: 'leaf-shadow.png',
-
             iconSize:     [50, 50], // size of the icon
             shadowSize:   [50, 64], // size of the shadow
             iconAnchor:   [25, 25], // point of the icon which will correspond to marker's location
@@ -49,7 +48,42 @@ fetch(miSolicitud2, {
         // var idRep = document.getElementById('idInvisibleEnMiniPopUP');
         
 
-        var marker = L.marker([miDatoConsultado.latitudReportada, miDatoConsultado.longitudReportada], {icon: Icon}).addTo(map);
+        var marker = L.marker([miDatoConsultado.latitudReportada, miDatoConsultado.longitudReportada], {icon: Icon, iconId: idReporte}).addTo(map).on('click', evento);
+
+        function evento(e) {
+          var idActual = this.options.iconId;
+        }
+
+        //Editar
+        var botonEditar = document.getElementById('botonEditarReporte');
+          
+        botonEditar.setAttribute('data-id', '`${idActual}`')
+  
+        //Eliminar
+        var botonEliminar = document.getElementById('botonEliminarReporte');
+
+        botonEliminar.setAttribute('data-id', "${idActual}")
+        
+        botonEditar.addEventListener('click', enviarEdicionABackEnd);
+
+        var dataID = botonEditar.getAttribute('data-id');
+        // alert(dataID); // VOY POR AQUÍ SEPTIEMBRE 9 Necesito hacer que la variable idActual se pueda usar por fuera de la función evento 
+        
+        function enviarEdicionABackEnd() {
+          alert(`Solicitud de edición del reporte con el id [{
+            "idDeReporte": "${idActual}",
+          }]`);
+        }
+        
+        botonEliminar.addEventListener('click', enviarEliminacionABackEnd);
+
+        function enviarEliminacionABackEnd() {
+          alert(`Solicitud de eliminación del reporte con el id [{
+            "idDeReporte": "${idActual}",
+          }]`);
+          //relativo a peticion DELETE
+        }
+
         var popup = L.popup();
         marker.bindPopup(textoPopup).openPopup();
         // var i = marker
@@ -59,56 +93,9 @@ fetch(miSolicitud2, {
         var circle = L.circle([miDatoConsultado.latitudReportada, miDatoConsultado.longitudReportada], {
           color: 'purple',
           fillColor: '#fff',
-          fillOpacity: 0.9,
+          fillOpacity: 0.5,
           radius: 1500
         }).addTo(map);
-
-
-        // Cuando se presiona el botón editaroeliminar
-
-        var botonEditarOEliminar = document.getElementById('btnEditarOEliminar');
-
-        // botonEditarOEliminar.addEventListener('click', verDataid);
-        
-        // function verDataid() {
-        var attributeDataid = botonEditarOEliminar.getAttribute('data-id');
-        //   alert(attributeDataid);
-        // }
-
-        //Editar
-        
-        var botonEditar = document.getElementById('botonEditarReporte');
-
-        botonEditar.addEventListener('click', enviarEdicionABackEnd);
-        
-        function enviarEdicionABackEnd() {
-          // alert(attributeDataid);
-          //relativo a peticion PUT
-          // alert(idReporte);
-          // alert(attributeDataid==miDatoConsultado.idDeReporte);
-            if(attributeDataid==miDatoConsultado.idDeReporte) {
-              alert(`Solicitud de edición del reporte con el id [{
-                "idDeReporte": "${attributeDataid}"
-              }]`);
-            }
-        }
-
-
-        // //USAR LOS IDENTIFICADORES UNICOS GENERADOS CON LA LIBRERÍA UUID PARA ELIMINAR EL EVENTO
-
-        var botonEliminar = document.getElementById('botonEliminarReporte');
-
-        botonEliminar.addEventListener('click', enviarEliminacionABackEnd);
-
-        function enviarEliminacionABackEnd() {
-
-            //relativo a peticion DELETE
-          if(attributeDataid==miDatoConsultado.idDeReporte) {
-            alert(`Solicitud de eliminación del reporte con el id [{
-              "idDeReporte": "${attributeDataid}"
-            }]`);
-          }
-        }
       }
     })
     .catch(console.error);
