@@ -117,14 +117,39 @@ function enviarReporteABackEnd() {
     var circle = L.circle([latitudReportada, longitudReportada], {
         color: 'purple',
         fillColor: '#fff',
-        fillOpacity: 0.9,
+        fillOpacity: 0.5,
         radius: 1500
     }).addTo(map);
 
+    var textoPopupDen = `<br><b>${tipoReporte}</b><br>${detallesDelReporte.value}</b><br>Fecha :${fechaReporte.value}`;
+
+    // var marker = L.marker([latitudReportada, longitudReportada], {icon: Icon}).addTo(map);
     var marker = L.marker([latitudReportada, longitudReportada], {icon: Icon}).addTo(map);
     var popup = L.popup();
-    marker.bindPopup(`<b>${tipoReporte}</b><br>${detallesDelReporte.value}</b><br>Fecha :${fechaReporte.value}`).openPopup();
+    marker.bindPopup(textoPopupDen).openPopup();
     // alert("pillar");
+
+    // function eventoClickDen(e) {
+            
+    //     // var idActual = this.options.iconId;
+    //     // var tipoActual = this.options.iconTipo; 
+    //     // var descripcionActual = this.options.iconDescripcion;
+    //     // var fechaActual = this.options.iconFecha;
+    //     // var latitudActual = this.options.iconLatitud;
+    //     // var longitudActual = this.options.iconLongitud;
+    //     // var textoActual = this.options.iconTexto;
+    //     // alert(textoActual);
+
+    //     var campoidDen = document.getElementById('idDelReporteSinEdicion');
+    //     var campoSinEdicionTipoDen = document.getElementById('tipoDelReporteSinEdicion');
+    //     var campoSinEdicionDetalleDen = document.getElementById('entradaDeLosDetallesEdicion');
+    //     var campoSinEdicionFechaDen = document.getElementById('fechaReporteEdicion');
+
+    //     campoidDen.innerHTML = IDUnicoReporte;
+    //     campoSinEdicionTipoDen.innerHTML = tipoReporte;
+    //     campoSinEdicionDetalleDen.innerHTML = detallesDelReporte.value;
+    //     campoSinEdicionFechaDen.innerHTML =  fechaReporte.value;
+    // }
 }
 
 
