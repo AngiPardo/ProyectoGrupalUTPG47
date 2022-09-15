@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin=""/>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <title>App Seguridad Ciudadana</title>
+</head>
+<body>
+    <a href="index.html">
+        <div class="container">
+            <header class="row">
+                <div class="col">
+                        <h1 style="color: white;"> &#x1f5e3;&#xfe0f; App de seguridad ciudadana</h1>
+                        <p  style="color: white;"">Mapa colaborativo de reportes de seguridad en tiempo real en Bogotá</p>
+                </div>
+            </header>
+        </div>                    
+    </a>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <div class="container-fluid">
+                      <!-- <a class="navbar-brand" href="#map">Mapa Colaborativo</a> -->
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="registroUsuario.html">¡Regístrate!</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="contactarPorCorreo">Contáctanos</a>
+                            </li>  
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="nosotros.html">Sobre Nosotros</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active bg-primary" href="inicioSesion.html">INICIAR SESIÓN</a>
+                            </li>  
+                        </ul>
+                        <!-- <form class="d-flex">
+                          <input class="for m-control me-2" type="search" placeholder="Search" aria-label="Search">
+                          <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form> -->
+                      </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="padding: 5%; margin-top: 3%; border-style: solid; border-radius: 0%; border-color: black; background-color: white;">
+        <div class="row">
+            <div class="column">
+                <form action="#map" class="formulario flex flex--column" id="formRegistroUsuarioRepor">
+                    <fieldset>
+                        <legend class="form__label" style="color: black;">Por favor registrate diligenciando los datos solicitados</legend>
+                        <div class="input-container">
+                            <input name="name" id="nameRegistro" class="input" type="text" placeholder="Nombre de Usuario" required data-tipo="nombre" style="width: 100%; margin: 5px; padding: 10px;">
+                        </div>
+                        <!-- <div class="input-container">
+                            <input name="email" id="emailRegistro" class="input" type="email" placeholder="Email" required data-tipo="email" style="width: 100%; margin: 5px; padding: 10px;">
+                        </div> -->
+                        <div class="input-container">
+                            <input name="password" id="passwordRegistro" class="input" type="password" placeholder="Contraseña" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[ !@#$%^&*_=+-]).{6,12}$" title="Al menos 6 caracteres, máximo 12, debe contener una letra minúscula, una letra mayúscula, un número y no puede contener caracteres especiales." data-tipo="password" style="width: 100%; margin: 5px; padding: 10px;">
+                        </div>
+                    </fieldset>
+                    <button class="button btn btn-primary" id="botonRegistro" style="width: 100%;">Registrarme ahora</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+    crossorigin=""></script>
+    <!-- <script src="js/llamadoInicialDatos.js"></script> -->
+    <script src="js/map.js"></script>
+    <script src="js/registro.js"></script>
+    <script src="js/inicioSesion.js"></script>
+    <script src="js/contactar.js"></script>
+    <!-- <script src="js/popup.js"></script> -->
+</body>
+</html>

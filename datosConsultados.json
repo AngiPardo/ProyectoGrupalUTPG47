@@ -1,0 +1,60 @@
+{
+	"misDatosConsultados": [
+		
+		{	
+			"nombreUsuarioDeReporte": "Samiii",
+			"idDeReporte": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+			"tipoReporte": "2",
+			"detallesDelReporte": "fsfs",
+			"fechaReporte": "20/07/1987",
+			"latitudReportada": "4.63071",
+			"longitudReportada": "-74.20000"
+		},
+		{	
+			"nombreUsuarioDeReporte": "Samiii",
+			"idDeReporte": "bbbbbbbbbbbbbbbbbbbbb",
+			"tipoReporte": "1",
+			"detallesDelReporte": "faassfd",
+			"fechaReporte": "21/07/1987",
+			"latitudReportada": "4.66571",
+			"longitudReportada": "-74.11000"
+		},
+		{
+			"nombreUsuarioDeReporte": "Samiii",
+			"idDeReporte": "ccccccccccccccccccccccc",
+			"tipoReporte": "3",
+			"detallesDelReporte": "fds",
+			"fechaReporte": "22/07/1987",
+			"latitudReportada": "4.67971",
+			"longitudReportada": "-74.14000"
+		},
+		{	
+			"nombreUsuarioDeReporte": "Stevan",
+			"idDeReporte": "fbdgffghgbvfgbghtyhtrhgr",
+			"tipoReporte": "2",
+			"detallesDelReporte": "fsfs",
+			"fechaReporte": "20/07/1987",
+			"latitudReportada": "4.62971",
+			"longitudReportada": "-74.17000"
+		},
+		{	
+			"nombreUsuarioDeReporte": "Samuel",
+			"idDeReporte": "$gfgbghhjnhfbnfgbgfbg",
+			"tipoReporte": "1",
+			"detallesDelReporte": "faassfd",
+			"fechaReporte": "21/07/1987",
+			"latitudReportada": "4.63971",
+			"longitudReportada": "-74.11000"
+		},
+		{	
+			"nombreUsuarioDeReporte": "Angel",
+			"idDeReporte": "sdsddgrtgggfhdfgfgfgfgf",
+			"tipoReporte": "3",
+			"detallesDelReporte": "fds",
+			"fechaReporte": "22/07/1987",
+			"latitudReportada": "4.65971",
+			"longitudReportada": "-74.13000"
+		}
+		
+	]
+}
