@@ -17,32 +17,24 @@ fetch(miSolicitud, {
       for (const miDatoConsultado of misDatosConsultadosJSON.misDatosConsultados) {
         // alert(nombre_usuario_recibido==miDatoConsultado.nombreUsuarioDeReporte); 
         // if(nombre_usuario_recibido==miDatoConsultado.nombreUsuarioDeReporte) {
+        
         if(miDatoConsultado.tipoReporte == 1) {
           var tipoReporteConsultado = "DESASTRE NATURAL";
           var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/terremoto.png";
-          if(nombre_usuario_recibido==miDatoConsultado.nombreUsuarioDeReporte) {
-            var sombraIcon = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/terremoto-sombra.png"; 
-          }
         } else if(miDatoConsultado.tipoReporte == 2) {
           var tipoReporteConsultado = "ACCIDENTE VIAL";
           var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/choque-de-autos.png";
-          if(nombre_usuario_recibido==miDatoConsultado.nombreUsuarioDeReporte) {
-            var sombraIcon = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/choque-de-autos-sombra.png";
-          }
-        } else if(miDatoConsultado.tipoReporte == 3) {
+         } else if(miDatoConsultado.tipoReporte == 3) {
           var tipoReporteConsultado = "ROBO";
           var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/robo.png";
-          if(nombre_usuario_recibido==miDatoConsultado.nombreUsuarioDeReporte) {
-            var sombraIcon = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/robo-sombra.png";
-          }
         }
-        
+
         if(nombre_usuario_recibido==miDatoConsultado.nombreUsuarioDeReporte) {  
 
           // Visualizar popup del icono cuando se de click sobre el
           var Icon = L.icon({
             iconUrl: iconoUrl,
-            shadowUrl: sombraIcon,
+            // shadowUrl: sombraIcon,
             iconSize:     [50, 50], // size of the icon
             shadowSize:   [50, 64], // size of the shadow
             iconAnchor:   [25, 25], // point of the icon which will correspond to marker's location
@@ -57,7 +49,22 @@ fetch(miSolicitud, {
           //USAR LOS IDENTIFICADORES UNICOS GENERADOS CON LA LIBRERÍA UUID PARA EDITAR EL EVENTO
 
           var marker = L.marker([miDatoConsultado.latitudReportada, miDatoConsultado.longitudReportada], {icon: Icon, iconId: idReporte, iconTipo: tipoReporteConsultado,  iconDescripcion: miDatoConsultado.detallesDelReporte, iconFecha: miDatoConsultado.fechaReporte, iconLatitud: miDatoConsultado.latitudReportada, iconLongitud: miDatoConsultado.longitudReportada, iconTexto: textoPopup}).addTo(map).on('click', eventoClick);
-          
+
+          var popup = L.popup();
+          marker.bindPopup(textoPopup);
+
+          var pathname = window.location.pathname;
+          switch(pathname) {
+            case "/index.html" :
+              // alert("index");
+              var marker = L.marker([miDatoConsultado.latitudReportada, miDatoConsultado.longitudReportada], {icon: Icon}).addTo(map);
+              var popup = L.popup();
+              marker.bindPopup(`<b>${tipoReporteConsultado}</b><br>${miDatoConsultado.detallesDelReporte}</b><br>Fecha :${miDatoConsultado.fechaReporte}`);
+              break;
+            case "/logueado.html" :
+              // alert("logueado");
+              break;
+          }
           //Reportes hechos por el usuario
           // var circle = L.circle([miDatoConsultado.latitudReportada, miDatoConsultado.longitudReportada], {
           //   color: 'purple',
@@ -150,10 +157,30 @@ fetch(miSolicitud, {
             }
           }
   
-          var popup = L.popup();
-          marker.bindPopup(textoPopup);
+          // var popup = L.popup();
+          // marker.bindPopup(textoPopup);
 
         } else {
+          var pathname = window.location.pathname;
+          switch(pathname) {
+            case "/index.html" :
+              // alert("index");
+              break;
+            case "/logueado.html" :
+              // alert("logueado");
+              if(miDatoConsultado.tipoReporte == 1) {
+                var tipoReporteConsultado = "DESASTRE NATURAL";
+                var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/terremoto-sombra.png";
+              } else if(miDatoConsultado.tipoReporte == 2) {
+                var tipoReporteConsultado = "ACCIDENTE VIAL";
+                var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/choque-de-autos-sombra.png";
+              } else if(miDatoConsultado.tipoReporte == 3) {
+                var tipoReporteConsultado = "ROBO";
+                var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/robo-sombra.png";
+              }
+              break;
+          }
+          
           var Icon = L.icon({
             iconUrl: iconoUrl,
             iconSize:     [50, 50], // size of the icon
@@ -164,7 +191,8 @@ fetch(miSolicitud, {
           });
           var marker = L.marker([miDatoConsultado.latitudReportada, miDatoConsultado.longitudReportada], {icon: Icon}).addTo(map);
           var popup = L.popup();
-          marker.bindPopup(`<b>${tipoReporteConsultado}</b><br>${miDatoConsultado.detallesDelReporte}</b><br>Fecha :${miDatoConsultado.fechaReporte}`).openPopup();     
+          marker.bindPopup(`<b>${tipoReporteConsultado}</b><br>${miDatoConsultado.detallesDelReporte}</b><br>Fecha :${miDatoConsultado.fechaReporte}`);
+          // .openPopup()     
         }
       }
     })

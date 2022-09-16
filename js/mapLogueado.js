@@ -8,10 +8,10 @@ miStorage = window.localStorage;
 // var nombre_usuario_recibido = localStorage.getItem('nombre_usuario');
 // alert(nombre_usuario_recibido);
 
-var map = L.map('map').setView([4.62971, -74.12000], 12);
+var map = L.map('map').setView([4.62971, -74.12000], 13);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
+    maxZoom: 16,
     attribution: '© OpenStreetMap'
 }).addTo(map);
 
