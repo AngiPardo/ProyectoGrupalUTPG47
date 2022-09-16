@@ -3,4 +3,5 @@ function cerrarSesion() {
     var passwordRegistro = "";
     localStorage.removeItem('nombre_usuario_recibido');
     localStorage.clear();
+    location.reload();
 }

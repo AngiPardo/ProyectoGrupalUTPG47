@@ -1,4 +1,4 @@
-
+miStorage = window.localStorage;
 //Reconociendo el nombre del usuario
 // var nombreUsuario = document.getElementById('nameInicioSesion').innerHTML;
 // alert(nombreUsuario);
@@ -67,7 +67,8 @@ function enviarReporteABackEnd() {
 
     if(eleccionTipoReporte.value == 1) {
         var tipoReporte = "DESASTRE NATURAL";
-        var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/terremoto.png"; 
+        var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/terremoto.png";
+        // var sombraIcon = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/terremoto-sombra.png"; 
         alert(`[{
             "nombreUsuarioDeReporte": "${nombre_usuario_recibido}",
             "idDeReporte": "${IDUnicoReporte}",
@@ -80,6 +81,7 @@ function enviarReporteABackEnd() {
     } else if(eleccionTipoReporte.value == 2) {
         var tipoReporte = "ACCIDENTE VIAL";
         var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/choque-de-autos.png";
+        // var sombraIcon = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/choque-de-autos-sombra.png";
         alert(`[{
             "nombreUsuarioDeReporte": "${nombre_usuario_recibido}",
             "idDeReporte": "${IDUnicoReporte}",
@@ -92,6 +94,7 @@ function enviarReporteABackEnd() {
     } else if(eleccionTipoReporte.value == 3) {
         var tipoReporte = "ROBO";
         var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/robo.png";
+        // var sombraIcon = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/robo-sombra.png";
         alert(`[{
             "nombreUsuarioDeReporte": "${nombre_usuario_recibido}",
             "idDeReporte": "${IDUnicoReporte}",
@@ -105,8 +108,7 @@ function enviarReporteABackEnd() {
 
     var Icon = L.icon({
         iconUrl: iconoUrl,
-        // shadowUrl: 'leaf-shadow.png',
-    
+        // shadowUrl: sombraIcon,
         iconSize:     [50, 50], // size of the icon
         shadowSize:   [50, 64], // size of the shadow
         iconAnchor:   [25, 25], // point of the icon which will correspond to marker's location
@@ -114,12 +116,12 @@ function enviarReporteABackEnd() {
         popupAnchor:  [10, -35] // point from which the popup should open relative to the iconAnchor
     });
     
-    var circle = L.circle([latitudReportada, longitudReportada], {
-        color: 'purple',
-        fillColor: '#fff',
-        fillOpacity: 0.5,
-        radius: 1500
-    }).addTo(map);
+    // var circle = L.circle([latitudReportada, longitudReportada], {
+    //     color: 'purple',
+    //     fillColor: '#fff',
+    //     fillOpacity: 0.5,
+    //     radius: 1500
+    // }).addTo(map);
 
     var textoPopupDen = `<br><b>${tipoReporte}</b><br>${detallesDelReporte.value}</b><br>Fecha :${fechaReporte.value}`;
 

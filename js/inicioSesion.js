@@ -1,3 +1,5 @@
+miStorage = window.localStorage;
+
 var nombreInicioSesion = document.getElementById('nameInicioSesion');
 var contrasenaInicioSesion = document.getElementById('passwordInicioSesion');
 var botonRegistroInicioSesion = document.getElementById('botonInicioSesion');
