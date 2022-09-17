@@ -95,6 +95,7 @@ fetch(miSolicitud, {
             campoid.innerHTML = idActual;
             campoSinEdicionTipo.innerHTML = tipoActual;
             campoSinEdicionDetalle.innerHTML = descripcionActual;
+            // alert(campoSinEdicionDetalle.innerHTML);
             campoSinEdicionFecha.innerHTML =  fechaActual;
   
             //Editar
@@ -102,10 +103,10 @@ fetch(miSolicitud, {
               
             botonEditar.addEventListener('click', enviarEdicionABackEnd);
             
-            var contadorEdicion = 0;
+            // var contadorEdicion = 0;
             function enviarEdicionABackEnd() {
-              contadorEdicion = contadorEdicion + 1;
-              if(contadorEdicion == 1) {
+              // contadorEdicion = contadorEdicion + 1;
+              // if(contadorEdicion == 1) {
                 var campoDeId = document.getElementById('idDelReporteSinEdicion');
                 
                 if(campoDeId.innerHTML.includes(idActual)) {
@@ -113,15 +114,16 @@ fetch(miSolicitud, {
                     "nombreUsuarioDeReporte": "${nombre_usuario_recibido}",
                     "idDeReporte": "${campoDeId.innerHTML}",
                     "TipoDeReporte": "${campoSinEdicionTipo.innerHTML}",
-                    "DescripcionDelReporte": "${campoSinEdicionDetalle.innerHTML}",
+                    "DescripcionDelReporte": "${campoSinEdicionDetalle.value}",
                     "FechaDelReporte": "${campoSinEdicionFecha.value}",
                     "Latitud": "${latitudActual}",
                     "Longitud": "${longitudActual}"
                   }]`);
                 }
-                botonEditar.className -= ' visible';
-                botonEditar.className += ' invisible';
-              }
+                campoSinEdicionDetalle.innerHTML = this.options.iconDescripcion;
+                // botonEditar.className -= ' visible';
+                // botonEditar.className += ' invisible';
+              // }
             }
       
             //Eliminar
@@ -131,10 +133,10 @@ fetch(miSolicitud, {
   
             var modalDeEdicionOEliminacion = document.getElementById('modalEdicionOEliminacion');
   
-            var contadorEliminacion = 0;
+            // var contadorEliminacion = 0;
             function enviarEliminacionABackEnd() {
-              contadorEliminacion = contadorEliminacion + 1;
-              if(contadorEliminacion == 1) {
+              // contadorEliminacion = contadorEliminacion + 1;
+              // if(contadorEliminacion == 1) {
 
                 // marker.clearLayers();
                 // location.reload();
@@ -153,7 +155,7 @@ fetch(miSolicitud, {
                     // map.removeLayer(circle);
                   };
                 }
-              }
+              // }
             }
           }
   
