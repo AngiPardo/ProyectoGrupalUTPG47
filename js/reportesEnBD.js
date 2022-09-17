@@ -103,6 +103,7 @@ fetch(miSolicitud, {
               
             botonEditar.addEventListener('click', enviarEdicionABackEnd);
             
+            campoSinEdicionDetalle.value=this.options.iconDescripcion;
             // var contadorEdicion = 0;
             function enviarEdicionABackEnd() {
               // contadorEdicion = contadorEdicion + 1;
@@ -120,7 +121,6 @@ fetch(miSolicitud, {
                     "Longitud": "${longitudActual}"
                   }]`);
                 }
-                campoSinEdicionDetalle.innerHTML = this.options.iconDescripcion;
                 // botonEditar.className -= ' visible';
                 // botonEditar.className += ' invisible';
               // }
@@ -133,10 +133,10 @@ fetch(miSolicitud, {
   
             var modalDeEdicionOEliminacion = document.getElementById('modalEdicionOEliminacion');
   
-            // var contadorEliminacion = 0;
+            var contadorEliminacion = 0;
             function enviarEliminacionABackEnd() {
-              // contadorEliminacion = contadorEliminacion + 1;
-              // if(contadorEliminacion == 1) {
+              contadorEliminacion = contadorEliminacion + 1;
+              if(contadorEliminacion == 1) {
 
                 // marker.clearLayers();
                 // location.reload();
@@ -155,7 +155,7 @@ fetch(miSolicitud, {
                     // map.removeLayer(circle);
                   };
                 }
-              // }
+              }
             }
           }
   
@@ -170,17 +170,21 @@ fetch(miSolicitud, {
               break;
             case "/logueado.html" :
               // alert("logueado");
-              if(miDatoConsultado.tipoReporte == 1) {
-                var tipoReporteConsultado = "DESASTRE NATURAL";
-                var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/terremoto-sombra.png";
-              } else if(miDatoConsultado.tipoReporte == 2) {
-                var tipoReporteConsultado = "ACCIDENTE VIAL";
-                var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/choque-de-autos-sombra.png";
-              } else if(miDatoConsultado.tipoReporte == 3) {
-                var tipoReporteConsultado = "ROBO";
-                var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/robo-sombra.png";
-              }
-              break;
+              // alert(nombre_usuario_recibido);
+              // if(miDatoConsultado.nombreUsuarioDeReporte) {
+                if(miDatoConsultado.tipoReporte == 1) {
+                  var tipoReporteConsultado = "DESASTRE NATURAL";
+                  var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/terremoto-sombra.png";
+                } else if(miDatoConsultado.tipoReporte == 2) {
+                  var tipoReporteConsultado = "ACCIDENTE VIAL";
+                  var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/choque-de-autos-sombra.png";
+                } else if(miDatoConsultado.tipoReporte == 3) {
+                  var tipoReporteConsultado = "ROBO";
+                  var iconoUrl = "https://irreverente.net/AppWebProyectoSeguridadCiudadana/img/robo-sombra.png";
+                }
+                break;
+              // }
+
           }
           
           var Icon = L.icon({
